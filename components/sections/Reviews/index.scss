@@ -1,0 +1,115 @@
+.reviews {
+  &__container {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    text-align: center;
+    padding: 0 15px;
+    @include media("<=991px") {
+      margin-top: 20px;
+      margin-bottom: 20px;
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  &__top {
+    @include media("<=991px") {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+    @include media("<=576px") {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 30px;
+    @include media("<=768px") {
+      margin-bottom: 15px;
+    }
+  }
+
+  &__text {
+    margin-bottom: 50px;
+    @include media("<=768px") {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__swiper {
+    @include media("<=768px") {
+      padding: 0 10px;
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    height: auto;
+
+    @include media("<=768px") {
+      padding: 25px;
+    }
+  }
+
+  &__item-title {
+    margin-bottom: 20px;
+
+    font-weight: 900;
+    font-size: 20px;
+    line-height: 180%;
+    color: #0d6efd;
+    @include media("<=768px") {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+  }
+
+  &__item-description {
+    margin-bottom: 45px;
+    color: #0d6efd;
+    @include media("<=768px") {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__item-author {
+    margin-top: auto;
+    text-align: center;
+  }
+
+  &__item-author-img {
+    margin-bottom: 10px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    @include media("<=768px") {
+      margin-bottom: 5px;
+    }
+  }
+
+  &__item-author-name {
+    margin-bottom: 5px;
+    font-weight: 900;
+    font-size: 20px;
+    line-height: 180%;
+    color: #0d6efd;
+    @include media("<=768px") {
+      line-height: 135%;
+    }
+  }
+
+  &__item-author-role {
+  }
+
+  &__pagination {
+    position: static !important;
+    margin-top: 20px;
+    .swiper-pagination-bullet-active {
+      background-color: #0d6efd;
+    }
+  }
+}

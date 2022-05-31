@@ -1,0 +1,40 @@
+{
+  "name": "online-courses",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "export": "next build && next export",
+    "start": "next start -p $PORT",
+    "analyze": "cross-env ANALYZE=true next build",
+    "lint": "next lint",
+    "heroku-postbuild": "npm run build"
+  },
+  "dependencies": {
+    "@next/bundle-analyzer": "^12.1.4",
+    "axios": "^0.27.2",
+    "classnames": "^2.3.1",
+    "clsx": "^1.1.1",
+    "cross-env": "^7.0.3",
+    "next": "12.1.0",
+    "npm": "^8.5.4",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-icons": "^4.3.1",
+    "react-lazy-load-image-component": "^1.5.4",
+    "react-multi-select-component": "^4.2.7",
+    "react-select": "^5.3.2",
+    "react-toastify": "^9.0.1",
+    "sass": "^1.49.9",
+    "sharp": "^0.30.2",
+    "simple-zustand-devtools": "^1.0.1",
+    "sitemap": "^7.1.1",
+    "swiper": "^8.1.0",
+    "zustand": "^4.0.0-rc.1"
+  },
+  "devDependencies": {
+    "eslint": "8.10.0",
+    "eslint-config-next": "12.1.0"
+  }
+}

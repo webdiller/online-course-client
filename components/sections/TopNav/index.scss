@@ -1,0 +1,15 @@
+.navbar {
+  &__wallet {
+    margin-left: auto;
+    @include media("<=1199px") {
+      margin-left: 0;
+      margin-right: auto;
+    }
+  }
+  &__cabinet-login {
+    @include media("<=1199px") {
+      margin-left: 0;
+      margin-right: auto;
+    }
+  }
+}

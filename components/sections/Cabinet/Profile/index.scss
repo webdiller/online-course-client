@@ -1,0 +1,30 @@
+.profile {
+  &__container {
+    margin-bottom: 50px;
+  }
+
+  &__form {
+    &:not(:first-child) {
+      margin-top: 30px;
+    }
+    max-width: 600px;
+  }
+
+  &__form-section {
+  }
+
+  &__form-btn {
+    &[disabled] {
+      opacity: .5;
+      pointer-events: none;
+    }
+  }
+
+  &__form-section-title {
+    color: #0d6efd;
+  }
+
+  &__form-group {
+    margin-bottom: 10px;
+  }
+}

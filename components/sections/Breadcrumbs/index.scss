@@ -1,0 +1,22 @@
+.breadcrumbs {
+  &__container {
+    display: flex;
+    align-items: center;
+    margin: 15px auto;
+  }
+  &__item {
+    text-decoration: none;
+    color: #0d6efd;
+    &:not(:last-child) {
+      position: relative;
+      &::after {
+        content: "/";
+        margin: 0 10px;
+      }
+    }
+    &:last-child {
+      color: #0d6efd;
+      pointer-events: none;
+    }
+  }
+}

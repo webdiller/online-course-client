@@ -1,0 +1,85 @@
+.admin {
+  min-height: 60vh;
+}
+
+.admin-nav {
+  &__container {
+    display: flex;
+    align-items: center;
+    margin: 30px auto;
+  }
+  &__item {
+    text-decoration: none;
+    margin-right: 15px;
+    &.active {
+      text-decoration: underline;
+    }
+    &:not(:last-child) {
+    }
+  }
+}
+
+
+.admin-products {
+  &__container {
+    margin-bottom: 100px;
+    @include media("<=768px") {
+      margin-bottom: 50px;
+    }
+  }
+
+
+  &__title {
+    margin-bottom: 20px;
+    font-size: 30px;
+    font-weight: 600;
+    color: #0d6efd;
+    @include media("<=768px") {
+      font-size: 20px;
+    }
+  }
+  &__products {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    @include media("<=768px") {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__product {
+    position: relative;
+  }
+  
+  &__edit {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: #fff;
+    color: black;
+    font-size: 14px;
+    padding: 5px 15px;
+    border-radius: 5px;
+  }
+
+  &__img {
+    width: 100%;
+    object-fit: cover;
+    height: auto;
+  }
+
+  &__group {
+  }
+
+  &__actions {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 20px;
+  }
+
+  &__submit {
+    width: 100%;
+    font-weight: 400;
+  }
+}

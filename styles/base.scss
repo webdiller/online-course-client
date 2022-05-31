@@ -1,0 +1,64 @@
+@import "./reset";
+@import "./mixins";
+@import "./ui";
+@import "./service";
+
+// shared
+@import "@/shared/Produt";
+
+// sections
+@import "@/sections/TopNav";
+@import "@/sections/Welcome";
+@import "@/sections/OurProducts";
+@import "@/sections/DealOfTheDay";
+@import "@/sections/Reviews";
+@import "@/sections/Footer";
+@import "@/sections/Catalog";
+@import "@/sections/MiddleNav";
+@import "@/sections/Breadcrumbs";
+@import "@/sections/Product";
+@import "@/sections/Cabinet/CabinetCart";
+@import "@/sections/Cabinet/Profile";
+@import "@/sections/Cabinet/Wallet";
+@import "@/sections/Admin";
+
+// auth
+@import "@/sections/Auth";
+
+// layouts
+@import "@/components/layouts";
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 375px;
+  scroll-behavior: smooth;
+}
+
+body,
+button,
+input,
+input::placeholder,
+textarea,
+textarea::placeholder {
+  font-family: sans-serif;
+  font-size: 18px;
+  line-height: 32px;
+  @include media("<=991px") {
+    font-size: 16px;
+    line-height: 1.35;
+  }
+  @include media("<=576px") {
+    font-size: 14px;
+  }
+}
+
+button {
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+}
