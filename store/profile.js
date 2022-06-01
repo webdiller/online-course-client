@@ -1,6 +1,6 @@
 import UserService from 'services/UserService'
 import create from 'zustand'
-import { toast } from 'react-toastify';
+
 import { mountStoreDevtool } from 'simple-zustand-devtools';
 
 export const useProfileStore = create((set, get) => ({
@@ -9,9 +9,6 @@ export const useProfileStore = create((set, get) => ({
   userId: "",
   userName: "",
   userEmail: "",
-  userCity: "",
-  userStreet: "",
-  userPostCode: "",
   userPhone: "",
   userCurrentPassword: "",
   userNewPassword: "",
@@ -23,9 +20,6 @@ export const useProfileStore = create((set, get) => ({
   userIdSet: (value) => set(state => ({ userId: value })),
   userNameSet: (value) => set(state => ({ userName: value })),
   userEmailSet: (value) => set(state => ({ userEmail: value })),
-  userCitySet: (value) => set(state => ({ userCity: value })),
-  userStreetSet: (value) => set(state => ({ userStreet: value })),
-  userPostCodeSet: (value) => set(state => ({ userPostCode: value })),
   userCurrentPasswordSet: (value) => set(state => ({ userCurrentPassword: value })),
   userNewPasswordSet: (value) => set(state => ({ userNewPassword: value })),
   userPhoneSet: (value) => set(state => ({ userPhone: value })),
@@ -43,20 +37,14 @@ export const useProfileStore = create((set, get) => ({
           password,
           createdAt,
           updatedAt,
-          street,
-          city,
           phone,
-          postalCode,
           basket,
           balance,
         } = data;
 
         set({ userName: name })
         set({ userEmail: email })
-        set({ userStreet: street })
-        set({ userCity: city })
         set({ userPhone: phone })
-        set({ userPostCode: postalCode })
         set({ userBalance: balance })
 
         if (basket) {
@@ -73,10 +61,6 @@ export const useProfileStore = create((set, get) => ({
         const { data, status } = await UserService.updateInfo({
           id: userId,
           name: get().userName,
-          city: get().userCity,
-          street: get().userStreet,
-          city: get().userCity,
-          postalCode: get().userPostCode,
           phone: get().userPhone,
         });
         if (status === 200) {

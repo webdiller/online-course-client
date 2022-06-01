@@ -7,6 +7,7 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 50px 25px;
+    margin-bottom: 30px;
     @include media("<=991px") {
       gap: 20px;
     }

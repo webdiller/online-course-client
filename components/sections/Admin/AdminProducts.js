@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { toast } from 'react-toastify'
 import ProductService from 'services/ProductService'
 import imgPlaceholder from '@/base/placeholder.png'
 import Link from "next/link";
@@ -23,7 +22,7 @@ export default function AdminProducts() {
   return (
     <div className="admin-products">
       <div className="container admin-products__container">
-        <p className="admin-products__title">Список продуктов</p>
+        <p className="admin-products__title">Список курсов</p>
 
         <div className="admin-products__products">
           {products.map((product) => {
@@ -31,7 +30,6 @@ export default function AdminProducts() {
               id,
               category,
               available,
-              collection,
               currentPrice,
               description,
               images,
@@ -44,8 +42,6 @@ export default function AdminProducts() {
               <div key={id} className="admin-products__product">
                 <img src={images[0]} alt="products" className="admin-products__img" />
 
-                <Link href={`/admin/products/${id}/edit`}><a className="admin-products__edit">Редактировать</a></Link>
-
                 <div className="admin-products__group ui-input">
                   <label className="text ui-input__label">Название: {name}</label>
                 </div>
@@ -53,6 +49,8 @@ export default function AdminProducts() {
                 <div className="admin-products__group ui-input">
                   <label className="text ui-input__label">Цена: {currentPrice}</label>
                 </div>
+
+                <Link href={`/admin/products/${id}/edit`}><a className="btn btn-outline-dark admin-products__edit">Редактировать</a></Link>
               </div>
             )
           })}

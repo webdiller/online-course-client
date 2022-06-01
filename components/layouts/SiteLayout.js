@@ -1,4 +1,3 @@
-import { ToastContainer } from "react-toastify"
 
 import { useAuthStore } from '@/store/auth'
 import { useEffect } from 'react';
@@ -44,7 +43,6 @@ const SiteLayout = ({ children }) => {
   return (
     <>
       <div className="site-layout">{children}</div>
-      <ToastContainer />
     </>
   )
 }

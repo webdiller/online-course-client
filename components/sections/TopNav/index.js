@@ -56,7 +56,7 @@ export default function TopNav() {
                       </ul>
                     </li>
                     <li className="nav-item navbar__wallet">
-                      {isAuth && (<Link href="/cabinet/cart"><a className="nav-link" tabIndex="-1" aria-disabled="true">Мои продукты</a></Link>)}
+                      {isAuth && (<Link href="/cabinet/cart"><a className="nav-link" tabIndex="-1" aria-disabled="true">Мои курсы</a></Link>)}
                     </li>
                     <li className="nav-item navbar__cabinet-login">
                       {!isAuth

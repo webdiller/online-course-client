@@ -6,9 +6,9 @@ export default class UserService {
     return $api.get(`/users/${id}`)
   }
 
-  static async updateInfo({id, name, city, street, phone, postalCode}) {
+  static async updateInfo({id, name, phone}) {
     return $api.patch(`/users/${id}/update`, {
-      name, city, street, phone, postalCode
+      name, phone
     })
   }
 

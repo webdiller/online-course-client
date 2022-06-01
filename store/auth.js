@@ -1,5 +1,5 @@
 import create from 'zustand'
-import { toast } from 'react-toastify';
+
 import AuthService from 'services/AuthService';
 import { mountStoreDevtool } from 'simple-zustand-devtools';
 

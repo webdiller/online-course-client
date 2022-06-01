@@ -9,14 +9,10 @@ import imgPlaceholder from '@/base/placeholder.png'
 
 export default function CabinetCart({ basket }) {
   const router = useRouter()
-
   const { userId } = useAuthStore(state => state)
   const {
     userName, userNameSet,
     userEmail, userEmailSet,
-    userCity, userCitySet,
-    userStreet, userStreetSet,
-    userPostCode, userPostCodeSet,
     userPhone, userPhoneSet,
     userCurrentPassword, userCurrentPasswordSet,
     userNewPassword, userNewPasswordSet,
@@ -41,6 +37,10 @@ export default function CabinetCart({ basket }) {
   const [basketState, basketStateSet] = useState([])
   const [basketCount, basketCountSet] = useState(0)
 
+  const updateInfoAndCreeatePayment = (e) => {
+    updateInfo(e, userId)
+  }
+
   useEffect(() => {
     basketStateSet(basket)
   }, [basket])
@@ -49,12 +49,13 @@ export default function CabinetCart({ basket }) {
     if (basketState && basketState.userProducts && basketState.userProducts.length > 0) {
       let total = 0;
       basketState.userProducts.forEach(productItem => {
-        const { quantity, product: { name, currentPrice } } = productItem;
-        total += (currentPrice * quantity)
+        const { product: { currentPrice } } = productItem;
+        total += (currentPrice)
       })
       basketCountSet(total)
     }
   }, [basketState])
+
 
   return (
     <div className="cabinet-cart">
@@ -67,16 +68,13 @@ export default function CabinetCart({ basket }) {
               basketState.userProducts.map(product => {
                 const {
                   productId,
-                  quantity: quantityUserProduct,
                   id: userProductId,
                   product: {
                     available,
-                    collection,
                     currentPrice,
                     images,
                     name,
                     previousPrice,
-                    quantity: quantityCurrentProduct,
                     rating,
                     slug,
                     views
@@ -96,7 +94,7 @@ export default function CabinetCart({ basket }) {
                       <div className="cabinet-cart__product-characteristics">
                         <div className="cabinet-cart__product-characteristic">
                           <p className="text cabinet-cart__product-characteristic-key">ЦЕНА:</p>
-                          <p className="text cabinet-cart__product-characteristic-value">${currentPrice} </p>
+                          <p className="text cabinet-cart__product-characteristic-value">{currentPrice} руб.</p>
                         </div>
                       </div>
                     </div>
@@ -104,7 +102,7 @@ export default function CabinetCart({ basket }) {
                 )
               })
               : (
-                <p className="cabinet-cart__title">Нет продуктов</p>
+                <p className="cabinet-cart__title">Нет курсов</p>
               )
             }
           </div>
@@ -119,64 +117,36 @@ export default function CabinetCart({ basket }) {
         {basketState && basketState.userProducts && basketState.userProducts.length > 0 && (
 
           <div className="cabinet-cart__info">
-            <form className="cabinet-cart__info-item">
+
+            <form onSubmit={e => { updateInfoAndCreeatePayment(e) }} className="cabinet-cart__info-item">
               <div className="cabinet-cart__billing">
-                <p className="cabinet-cart__billing-title">Адрес доставки</p>
-                <Link href="/cabinet#contactData"><a className="cabinet-cart__billing-subtitle">Изменить данные</a></Link>
+                <h2 className="cabinet-cart__billing-title">Контактные данные</h2>
 
-                <div className="cabinet-cart__billing-group ui-input">
-                  <label className="text ui-input__label">Город</label>
-                  <input readOnly defaultValue={userCity} placeholder="Город" type="text" className="ui-input__field" />
+                <div className="auth__group mb-3">
+                  <label className="form-label m-0">Email</label>
+                  <input defaultValue={userEmail} onChange={e => userEmailSet(e.target.value)} placeholder="Email" type="text" className="form-control" />
                 </div>
 
-                <div className="cabinet-cart__billing-group ui-input">
-                  <label className="text ui-input__label">Улица</label>
-                  <input readOnly defaultValue={userStreet} placeholder="Улица" type="text" className="ui-input__field" />
+                <div className="auth__group mb-3">
+                  <label className="form-label m-0">ФИО</label>
+                  <input defaultValue={userName} onChange={e => userNameSet(e.target.value)} placeholder="ФИО" type="text" className="form-control" />
                 </div>
 
-                <div className="cabinet-cart__billing-group ui-input">
-                  <label className="text ui-input__label">Индекс</label>
-                  <input readOnly defaultValue={userPostCode} placeholder="Индекс" type="text" className="ui-input__field" />
+                <div className="auth__group mb-3">
+                  <label className="form-label m-0">Контактный телефон</label>
+                  <input defaultValue={userPhone} onChange={e => userPhoneSet(e.target.value)} placeholder="Контактный телефон" type="text" className="form-control" />
                 </div>
-
               </div>
-            </form>
-
-            <form className="cabinet-cart__info-item">
-              <div className="cabinet-cart__billing">
-                <p className="cabinet-cart__billing-title">Контактные данные</p>
-
-                <div className="cabinet-cart__billing-group ui-input">
-                  <label className="text ui-input__label">Email</label>
-                  <input readOnly defaultValue={userEmail} placeholder="Email" type="text" className="ui-input__field" />
-                </div>
-
-                <div className="cabinet-cart__billing-group ui-input">
-                  <label className="text ui-input__label">ФИО</label>
-                  <input readOnly defaultValue={userName} placeholder="ФИО" type="text" className="ui-input__field" />
-                </div>
-
-                <div className="cabinet-cart__billing-group ui-input">
-                  <label className="text ui-input__label">Номер телефона</label>
-                  <input readOnly defaultValue={userPhone} placeholder="Номер телефона" type="text" className="ui-input__field" />
-                </div>
-
-              </div>
-
               <div className="cabinet-cart__total">
-                {/* TODO: Зачем промеджуточная? */}
-                {/* <div className="cabinet-cart__total-row">
-                  <p className="cabinet-cart__total-key">ПРОМЕЖУТОЧНАЯ СУММА</p>
-                  <p className="cabinet-cart__total-value">$900</p>
-                </div> */}
                 <div className="cabinet-cart__total-row">
-                  <p className="cabinet-cart__total-key cabinet-cart__total-key_lg">ОБЩАЯ СУММА</p>
-                  <p className="cabinet-cart__total-value cabinet-cart__total-value_lg">{basketCount.toLocaleString('ru-RU')} руб.</p>
+                  <h4 className="cabinet-cart__total-key">Сумма:</h4>
+                  <h3 className="cabinet-cart__total-value">{basketCount} руб.</h3>
                 </div>
-                <div className="cabinet-cart__total-separator"></div>
-                <button className="ui-link ui-link_green-border cabinet-cart__total-submit">ОФОРМИТЬ ЗАКАЗ</button>
+                <button className="btn btn-outline-primary cabinet-cart__total-submit">Подтвердить оплату</button>
               </div>
             </form>
+
+
           </div>
 
         )}

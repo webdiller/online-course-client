@@ -20,7 +20,6 @@ const catalogDavinchiPage = ({products, count }) => {
       <Breadcrumbs routes={routes.catalogDavinchi} />
       <TopFilter />
       <Catalog products={products} />
-      <Pagination count={count} router={`/catalog/premiere-pro`} />
     </>
   )
 }
@@ -29,10 +28,10 @@ catalogDavinchiPage.getLayout = getLayout
 export default catalogDavinchiPage
 
 export const getServerSideProps = async ({ query }) => {
-  const { skip = 0, take, category, mostPopular, mostSize, mostPrice } = query;
+  const { skip = 0, take, category, mostPopular, mostPrice } = query;
 
   const { data: count } = await ProductService.getCount('davinci-resolve');
-  const { status, data: products } = await ProductService.getAll({category: 'davinci-resolve', skip, take, mostPopular, mostSize, mostPrice});
+  const { status, data: products } = await ProductService.getAll({category: 'davinci-resolve', skip, take, mostPopular, mostPrice});
 
   return {
     props: {

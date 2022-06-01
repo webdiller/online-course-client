@@ -2,7 +2,7 @@ import { Auth } from '@/sections/Auth'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
 import { useEffect } from 'react'
-import { toast } from "react-toastify";
+
 import AuthService from 'services/AuthService'
 import { getLayout } from '@/components/layouts/DefaultLayout';
 import Breadcrumbs from '@/sections/Breadcrumbs';

@@ -20,11 +20,11 @@ const CabinetCartPage = () => {
   return (
     <>
       <Head>
-        <title>Мои продукты</title>
+        <title>Мои курсы</title>
         <meta name="description" content="Описание" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <MiddleNav title="Мои продукты" />
+      <MiddleNav title="Мои курсы" />
       <Breadcrumbs routes={routes.cainetCart} />
       <CabinetCart basket={basket} />
     </>

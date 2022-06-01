@@ -10,7 +10,7 @@ const ProductPage = ({ product }) => {
   return (
     <>
       <Head>
-        <title>Продукт</title>
+        <title>Курс</title>
         <meta name="description" content="Описание" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

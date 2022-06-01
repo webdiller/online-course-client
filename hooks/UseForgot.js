@@ -1,7 +1,7 @@
 import { useState } from "react"
 import AuthService from "services/AuthService";
 import { useRouter } from 'next/router'
-import { toast } from "react-toastify";
+
 
 export default function UseForgot() {
 

@@ -33,23 +33,15 @@ export default function Auth({
             onSubmit={handler}
             className="auth__form">
             {emailLabel &&
-              // <div className="auth__group ui-input">
-              //   <label className="text ui-input__label">{emailLabel}</label>
-              //   <input onChange={(e) => setEmail(e.target.value)} placeholder={emailLabel} type="email" className="ui-input__field" />
-              // </div>
               <div className="auth__group mb-3">
-                <label htmlFor="exampleFormControlInput1" className="form-label">{emailLabel}</label>
-                <input onChange={(e) => setEmail(e.target.value)} placeholder={emailLabel} type="email" className="form-control" id="exampleFormControlInput1" />
+                <label className="form-label mb-0">{emailLabel}</label>
+                <input onChange={(e) => setEmail(e.target.value)} placeholder={emailLabel} type="email" className="form-control" />
               </div>
             }
             {passwordLabel &&
-              // <div className="auth__group ui-input">
-              //   <label className="text ui-input__label">{passwordLabel}</label>
-              //   <input onChange={(e) => setPassword(e.target.value)} placeholder="Пароль" type="password" className="ui-input__field" />
-              // </div>
               <div className="auth__group mb-3">
-                <label htmlFor="exampleFormControlInput2" className="form-label">{passwordLabel}</label>
-                <input onChange={(e) => setPassword(e.target.value)} placeholder="Пароль" type="password" className="form-control" id="exampleFormControlInput2" />
+                <label className="form-label mb-0">{passwordLabel}</label>
+                <input onChange={(e) => setPassword(e.target.value)} placeholder="Пароль" type="password" className="form-control" />
               </div>
             }
             <button className="btn btn-outline-primary auth__submit">{submitText}</button>

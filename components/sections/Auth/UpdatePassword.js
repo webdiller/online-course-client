@@ -22,8 +22,8 @@ export default function UpdatePassword({
           </div>*/}
 
           <div className="auth__group mb-3">
-            <label htmlFor="exampleFormControlInput1" className="form-label">Новый пароль</label>
-            <input onChange={(e) => passwordSet(e.target.value)} name="password" type="text" className="form-control" id="exampleFormControlInput1" />
+            <label className="form-label mb-0">Новый пароль</label>
+            <input onChange={(e) => passwordSet(e.target.value)} name="password" type="text" className="form-control" />
           </div>
 
           {/* <div className="auth__group ui-input">
@@ -32,8 +32,8 @@ export default function UpdatePassword({
           </div>  */}
 
           <div className="auth__group mb-3">
-            <label htmlFor="exampleFormControlInput1" className="form-label">Подтвердите пароль</label>
-            <input onChange={(e) => confirmPasswordSet(e.target.value)} name="confirmPassword" type="text" className="form-control" id="exampleFormControlInput1" />
+            <label className="form-label mb-0">Подтвердите пароль</label>
+            <input onChange={(e) => confirmPasswordSet(e.target.value)} name="confirmPassword" type="text" className="form-control" />
           </div>
           <button className="btn btn-outline-primary auth__submit">Подтвердить</button>
         </form>

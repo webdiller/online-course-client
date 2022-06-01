@@ -1,32 +1,23 @@
 import Select from 'react-select';
 import React, { useEffect, useState } from 'react'
-import ColorService from 'services/ColorService';
-import SizeService from 'services/SizeService';
 import CategoryService from 'services/CategoryService';
 import ProductService from 'services/ProductService';
-import { toast } from 'react-toastify';
 import { useRouter } from 'next/router'
 
 export default function AdminAddProducts() {
 
   const router = useRouter()
 
-  const [dbColors, dbColorsSet] = useState([])
-  const [dbSizes, dbSizesSet] = useState([])
   const [dbCategories, dbCategoriesSet] = useState([])
 
   const [newProduct, newProductSet] = useState({
     name: "",
     description: "",
-    collection: "",
     previousPrice: 0,
     currentPrice: 0,
-    quantity: 0,
     rating: 0,
   });
 
-  const [selectedColor, selectedColorSet] = useState([])
-  const [selectedSize, selectedSizeSet] = useState([])
   const [selectedCategory, selectedCategorySet] = useState([])
   const [selectPublished, selectPublishedSet] = useState([])
 
@@ -41,50 +32,20 @@ export default function AdminAddProducts() {
       const { data: { id }, status } = await ProductService.createOne({
         name: newProduct.name,
         description: newProduct.name,
-        collection: newProduct.collection,
         previousPrice: newProduct.previousPrice,
         currentPrice: newProduct.currentPrice,
-        quantity: newProduct.quantity,
         rating: newProduct.rating,
 
         available: selectPublished.value,
-        categoryId: selectedCategory.categoryId,
-        colors: selectedColor.map(({ colorId }) => ({ colorId })),
-        sizes: selectedSize.map(({ sizeId }) => ({ sizeId }))
+        categoryId: selectedCategory.categoryId
       })
-      alert(`Продукт успешно создан`)
+      alert(`Курс успешно создан`)
       router.push(`/product/${id}`)
     } catch (error) {
       console.log(error);
-      alert(`Не удалось создать продукт`)
+      alert(`Не удалось создать курс`)
     }
   }
-
-  useEffect(() => {
-    const getColors = async () => {
-      try {
-        const { data, status } = await ColorService.getAll();
-        const filteredColors = data.map(color => ({ label: color.colorName, value: color.id, colorId: color.id }))
-        dbColorsSet(filteredColors)
-      } catch (error) {
-        console.log(error);
-      }
-    }
-    getColors()
-  }, [])
-
-  useEffect(() => {
-    const getColors = async () => {
-      try {
-        const { data, status } = await SizeService.getAll();
-        const filteredSizes = data.map(size => ({ label: size.name, value: size.id, sizeId: size.id }))
-        dbSizesSet(filteredSizes)
-      } catch (error) {
-        console.log(error);
-      }
-    }
-    getColors()
-  }, [])
 
   useEffect(() => {
     const getCategories = async () => {
@@ -102,7 +63,7 @@ export default function AdminAddProducts() {
   return (
     <div className="admin-products">
       <div className="container admin-products__container">
-        <p className="admin-products__title">Добавить продукт</p>
+        <p className="admin-products__title">Добавить курс</p>
 
         <div className="admin-products__products">
           <form onSubmit={onSubmitHandler} className="admin-products__product">

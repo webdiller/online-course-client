@@ -20,7 +20,6 @@ const catalogPremiereProPage = ({ products, count }) => {
       <Breadcrumbs routes={routes.catalogPremierePro} />
       <TopFilter />
       <Catalog products={products} />
-      <Pagination count={count} router={`/catalog/premiere-pro`} />
     </>
   )
 }
@@ -29,10 +28,10 @@ catalogPremiereProPage.getLayout = getLayout
 export default catalogPremiereProPage
 
 export const getServerSideProps = async ({ query }) => {
-  const { skip = 0, take, category, mostPopular, mostSize, mostPrice } = query;
+  const { skip = 0, take, category, mostPopular, mostPrice } = query;
 
   const { data: count } = await ProductService.getCount('premiere-pro');
-  const { status, data: products } = await ProductService.getAll({ category: 'premiere-pro', skip, take, mostPopular, mostSize, mostPrice });
+  const { status, data: products } = await ProductService.getAll({ category: 'premiere-pro', skip, take, mostPopular, mostPrice });
 
   return {
     props: {

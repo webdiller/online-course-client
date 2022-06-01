@@ -1,23 +1,18 @@
 import Select from 'react-select';
 import React, { useEffect, useState } from 'react'
-import ColorService from 'services/ColorService';
-import SizeService from 'services/SizeService';
 import CategoryService from 'services/CategoryService';
 import ProductService from 'services/ProductService';
-import { toast } from 'react-toastify';
+
 import { useRouter } from 'next/router'
 
 export default function AdminEditProducts({ product }) {
 
   const router = useRouter()
-  const [dbColors, dbColorsSet] = useState([])
-  const [dbSizes, dbSizesSet] = useState([])
   const [dbCategories, dbCategoriesSet] = useState([])
 
   const [newProduct, newProductSet] = useState({
     name: product.name,
     description: product.description,
-    collection: product.collection,
     previousPrice: product.previousPrice,
     currentPrice: product.currentPrice,
     rating: product.rating,
@@ -39,7 +34,6 @@ export default function AdminEditProducts({ product }) {
         id: product.id,
         name: newProduct.name,
         description: newProduct.name,
-        collection: newProduct.collection,
         previousPrice: newProduct.previousPrice,
         currentPrice: newProduct.currentPrice,
         rating: newProduct.rating,
@@ -51,35 +45,9 @@ export default function AdminEditProducts({ product }) {
       router.push(`/product/${product.id}`)
     } catch (error) {
       console.log(error);
-      alert(`Ошибка во время создания продукта`)
+      alert(`Ошибка во время создания курса`)
     }
   }
-
-  useEffect(() => {
-    const getColors = async () => {
-      try {
-        const { data, status } = await ColorService.getAll();
-        const filteredColors = data.map(color => ({ label: color.colorName, value: color.id, colorId: color.id }));
-        dbColorsSet(filteredColors)
-      } catch (error) {
-        console.log(error);
-      }
-    }
-    getColors()
-  }, [product.colors])
-
-  useEffect(() => {
-    const getColors = async () => {
-      try {
-        const { data, status } = await SizeService.getAll();
-        const filteredSizes = data.map(size => ({ label: size.name, value: size.id, sizeId: size.id }))
-        dbSizesSet(filteredSizes)
-      } catch (error) {
-        console.log(error);
-      }
-    }
-    getColors()
-  }, [])
 
   useEffect(() => {
     const getCategories = async () => {
@@ -97,16 +65,16 @@ export default function AdminEditProducts({ product }) {
   return (
     <div className="admin-products">
       <div className="container admin-products__container">
-        <p className="admin-products__title">Редактировать продукт</p>
+        <p className="admin-products__title">Редактировать курс</p>
 
         <div className="admin-products__products">
           <form onSubmit={onSubmitHandler} className="admin-products__product">
             {/* <img src="/product.png" alt="products" className="admin-products__img" /> */}
 
-            <div className="admin-products__group ui-input">
-              <label className="text ui-input__label">Id:</label>
-              <input readOnly defaultValue={product.id} type="text" className="ui-input__field" />
-            </div>
+            <div className="admin-products__group mb-3">
+                <label className="form-label mb-0">Id курса</label>
+                <input readOnly defaultValue={product.id} placeholder="Id" type="text" className="form-control" />
+              </div>
 
             <div className="admin-products__group ui-input">
               <label className="text ui-input__label">Название:</label>

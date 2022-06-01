@@ -6,18 +6,14 @@ import { BsChevronLeft, BsChevronRight } from 'react-icons/bs';
 import UserProductService from "services/UserProductService";
 import { useAuthStore } from "@/store/auth";
 import { useProfileStore } from "@/store/profile";
-import { toast } from "react-toastify";
 import imgPlaceholder from '@/base/placeholder.png'
 
 export default function Product({ product }) {
-  const { id, name, slug, description, collection, currentPrice, quantity, views, rating, available, sizes, colors, images } = product;
+  const { id, name, slug, description, previousPrice, currentPrice, views, rating, available, images } = product;
   const swiperRef = useRef();
 
   const { isAuth, userId } = useAuthStore(state => state)
   const { basket } = useProfileStore(state => state)
-
-  const [selectedColor, selectedColorSet] = useState(null);
-  const [selectedSize, selectedSizeSet] = useState(null);
 
   const addProduct = async (productId) => {
     if (!isAuth) {
@@ -35,14 +31,6 @@ export default function Product({ product }) {
         alert('Уже добавлено в корзину')
       }
     }
-  }
-
-  const selectColorHandle = (color) => {
-    selectedColorSet(color)
-  }
-
-  const selectSizeHandle = (size) => {
-    selectedSizeSet(size)
   }
 
   useEffect(() => {
@@ -70,7 +58,7 @@ export default function Product({ product }) {
               <p className="text product__info-description">
                 {description}
               </p>
-              <h3 className="text product__info-price-prev">{`${currentPrice} руб.`}</h3>
+              <h3 className="text product__info-price-prev">{`${previousPrice} руб.`}</h3>
               <h2 className="text product__info-price-current mb-3">{`${currentPrice} руб.`}</h2>
               <button onClick={() => addProduct(id)} type="button" className="btn btn-outline-primary product__info-submit">Добавить в корзину</button>
             </div>

@@ -1,14 +1,13 @@
 import $api from "@/http/index";
 
 export default class ProductService {
-  static async getAll({ skip = 0, take = 10, category, mostPopular, mostSize, mostPrice } = {}) {
+  static async getAll({ skip = 0, take = 100, category, mostPopular, mostPrice } = {}) {
     return $api.get(`/products`, {
       params: {
         skip,
         take,
         category,
         mostPopular,
-        mostSize,
         mostPrice
       }
     })
@@ -22,15 +21,15 @@ export default class ProductService {
     return $api.get(`/products/count/${slug}`)
   }
 
-  static async createOne({name, description, collection, previousPrice, currentPrice, quantity, rating, available, sizes, colors, categoryId}) {
+  static async createOne({name, description, previousPrice, currentPrice, rating, available, categoryId}) {
     return $api.post(`/products`, {
-      name, description, collection, previousPrice, currentPrice, quantity, rating, available, sizes, colors, categoryId
+      name, description, previousPrice, currentPrice, rating, available, categoryId
     })
   }
 
-  static async updateOne({id, name, description, collection, previousPrice, currentPrice, quantity, rating, available, sizes, colors, categoryId}) {
+  static async updateOne({id, name, description, previousPrice, currentPrice, rating, available, categoryId}) {
     return $api.patch(`/products/${id}`, {
-      name, description, collection, previousPrice, currentPrice, quantity, rating, available, sizes, colors, categoryId
+      name, description, previousPrice, currentPrice, rating, available, categoryId
     })
   }
 

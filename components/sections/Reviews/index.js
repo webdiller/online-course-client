@@ -89,7 +89,7 @@ export default function Reviews() {
                 <div className="card">
                   <img style={{ padding: '10px', opacity: .3 }} src={imgPlaceholder.src} alt="products" className="card-img-top" />
                   <div className="card-body">
-                    <p className="card-text">Описание продукта</p>
+                    <p className="card-text">Описание курса</p>
                   </div>
                   <div className="card-body">
                     <Link href="#"><a className="card-link">Подробнее</a></Link>

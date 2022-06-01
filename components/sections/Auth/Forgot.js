@@ -13,13 +13,9 @@ export default function Forgot({
         <form
           onSubmit={handler}
           className="auth__form">
-          {/* <div className="auth__group ui-input">
-            <label className="text ui-input__label">Почта</label>
-            <input onChange={(e) => setEmail(e.target.value)} placeholder="Почта" type="email" className="ui-input__field" />
-          </div> */}
           <div className="auth__group mb-3">
-            <label htmlFor="exampleFormControlInput3" className="form-label">Почта от старого аккаунта</label>
-            <input onChange={(e) => setEmail(e.target.value)} placeholder="Почта" type="email" className="form-control" id="exampleFormControlInput1" />
+            <label className="form-label mb-0">Почта от старого аккаунта</label>
+            <input onChange={(e) => setEmail(e.target.value)} placeholder="Почта" type="email" className="form-control" />
           </div>
           <button className="btn btn-outline-primary auth__submit">Восстановить пароль</button>
 

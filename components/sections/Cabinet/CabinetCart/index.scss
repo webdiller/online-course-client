@@ -4,6 +4,7 @@
     position: relative;
     z-index: 10;
     display: flex;
+    flex-direction: row-reverse;
     justify-content: space-between;
     margin-bottom: 30px;
     @include media("<=991px") {
@@ -33,12 +34,14 @@
     grid-template-columns: minmax(200px, 275px) minmax(250px, 370px);
     column-gap: 30px;
     justify-content: space-between;
-    box-shadow: 10px 10px 20px 15px rgba(196, 251, 241, 0.2);
+    border: 1px solid #0d6efd;
+    border-radius: 8px;
+    overflow: hidden;
 
     @include media("<=991px") {
       grid-template-columns: 100px 1fr;
       padding-left: 20px;
-      box-shadow: 5px 5px 10px 5px rgba(196, 251, 241, 0.8);
+      padding-bottom: 20px;
     }
 
     @include media("<=576px") {
@@ -175,12 +178,7 @@
   }
 
   &__billing-title {
-    font-weight: 600;
     margin-bottom: 10px;
-    font-size: 16px;
-    line-height: 19px;
-    color: #0d6efd;
-    text-transform: uppercase;
   }
   &__billing-subtitle {
     font-weight: 600;
@@ -198,38 +196,21 @@
   }
 
   &__total {
-    padding: 40px;
-    background-color: #e7f7f4;
-    @include media("<=991px") {
-      padding: 20px;
-    }
+    padding: 20px 0;
   }
 
   &__total-row {
     display: flex;
-    justify-content: flex-end;
     align-items: center;
     color: #0d6efd;
   }
 
   &__total-key {
     margin-right: 30px;
-    font-size: 14px;
-    color: #0d6efd;
-    &_lg {
-      font-weight: 600;
-      font-size: 18px;
-    }
   }
 
   &__total-value {
-    font-size: 14px;
-    color: #0d6efd;
-    &_lg {
-      font-weight: 600;
-      color: #0d6efd;
-      font-size: 18px;
-    }
+    
   }
 
   &__total-separator {
@@ -242,9 +223,6 @@
   &__total-submit {
     margin-top: 20px;
     width: 100%;
-    background-color: #0d6efd;
-    color: #ffffff;
-    font-weight: 400;
   }
   &__square {
     position: absolute;

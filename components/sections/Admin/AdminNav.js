@@ -7,9 +7,9 @@ export default function AdminNav() {
   return (
     <div className="admin-nav">
       <nav className="container admin-nav__container">
-        <Link href="/admin"><a className={currentPath === '/admin' ? "text admin-nav__item active" : "text admin-nav__item"}>Главная</a></Link>
-        <Link href="/admin/products"><a className={currentPath === '/admin/products' ? "text admin-nav__item active" : "text admin-nav__item"}>Продукты</a></Link>
-        <Link href="/admin/products/add"><a className={currentPath === '/admin/products/add' ? "text admin-nav__item active" : "text admin-nav__item"}>Добавить продукт</a></Link>
+        {/* <Link href="/admin"><a className={currentPath === '/admin' ? "text admin-nav__item active" : "text admin-nav__item"}>Главная</a></Link> */}
+        <Link href="/admin/products"><a className={currentPath === '/admin/products' ? "text admin-nav__item active" : "text admin-nav__item"}>Все курсы</a></Link>
+        <Link href="/admin/products/add"><a className={currentPath === '/admin/products/add' ? "text admin-nav__item active" : "text admin-nav__item"}>Добавить курс</a></Link>
       </nav>
     </div>
   )

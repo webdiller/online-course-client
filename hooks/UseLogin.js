@@ -1,7 +1,7 @@
 import { useState } from "react"
 import AuthService from "services/AuthService";
 import { useRouter } from 'next/router'
-import { toast } from "react-toastify";
+
 import { useAuthStore } from "@/store/auth";
 
 export default function UseLogin() {
