@@ -12,8 +12,8 @@ const nextConfig = withBundleAnalyzer({
     // API: process.env.NODE_ENV === 'production' ? 'https://online-courses.vercel.app/api/v1' : 'http://localhost:3001/api/v1',
 
     // FIXME: Удалить при проде
-    HOST: process.env.NODE_ENV === 'production' ? 'http://localhost:3000' : 'http://localhost:3000',
-    API: process.env.NODE_ENV === 'production' ? 'http://localhost:3001/api/v1' : 'http://localhost:3001/api/v1',
+    HOST: process.env.NODE_ENV === 'production' ? 'http://5.63.155.52:3001' : 'http://5.63.155.52:3001',
+    API: process.env.NODE_ENV === 'production' ? 'http://5.63.155.52:3001/api/v1' : 'http://5.63.155.52:3001/api/v1',
   },
   reactStrictMode: false,
   swcMinify: true,
