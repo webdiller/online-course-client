@@ -121,7 +121,7 @@ export const routes = {
       pageName: 'Главная'
     },
     {
-      route: '/wallet',
+      route: '/cabinet/wallet',
       pageName: 'Кошелек'
     }
   ],

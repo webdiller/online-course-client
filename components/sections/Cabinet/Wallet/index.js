@@ -19,25 +19,27 @@ export default function Wallet() {
   }, [getProfile, userId])
 
   return (
-    <div className="profile">
-      <div className="container profile__container">
+    <div className="wallet">
+      <div className="container wallet__container">
 
-        <form onSubmit={(e) => updateBalance(e, userId, selectBalance)} className="profile__form">
-          <div className="profile__form-section">
-            <p className="profile__form-section-title">Текущий баланс.........<b style={{ fontWeigth: 900 }}>{userBalance} руб.</b></p>
-            <div className="profile__form-group ui-input">
-              <label className="text ui-input__label">Введите сумму для добавления в кошелек</label>
-              <input onChange={e => selectBalanceSet(e.target.value)} value={selectBalance} type="number" placeholder="руб." className="ui-input__field" />
+        <form onSubmit={(e) => updateBalance(e, userId, selectBalance)} className="wallet__form">
+          <div className="wallet__form-section">
+            <h3 className="mb-3">Текущий баланс кошелька.........{userBalance} руб.</h3>
+
+            <div className="wallet__form-group ui-input">
+              <label className="form-label mb-0">Введите сумму для добавления в кошелек</label>
+              <input onChange={e => selectBalanceSet(e.target.value)} value={selectBalance} type="number" placeholder="руб." className="form-control ui-input__field" />
             </div>
+
             <div className="ui-fast-balance">
               <div className="ui-fast-balance__container">
-                <button onClick={()=>selectBalanceSet(500)} type="button" className="ui-fast-balance__item">500 р.</button>
-                <button onClick={()=>selectBalanceSet(1000)} type="button" className="ui-fast-balance__item">1000 р.</button>
-                <button onClick={()=>selectBalanceSet(5000)} type="button" className="ui-fast-balance__item">5000 р.</button>
+                <button onClick={()=>selectBalanceSet(500)} type="button" className="btn btn-outline-primary ui-fast-balance__item">500 р.</button>
+                <button onClick={()=>selectBalanceSet(1000)} type="button" className="btn btn-outline-primary ui-fast-balance__item">1000 р.</button>
+                <button onClick={()=>selectBalanceSet(5000)} type="button" className="btn btn-outline-primary ui-fast-balance__item">5000 р.</button>
               </div>
             </div>
             <br />
-            <button id="contactData" type="submit" className="ui-link ui-link_black profile__form-btn">Добавить</button>
+            <button type="submit" className="btn btn-outline-dark">Добавить сумму</button>
           </div>
         </form>
       </div>

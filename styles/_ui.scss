@@ -138,13 +138,6 @@
     display: flex;
   }
   &__item {
-    background-color: #afafaf;
-    padding: 5px 15px;
-    border: 0;
-    background-color: #f3f3f3;
-    transition: all 0.3s ease;
-    border: 1px solid #333333;
-    border-radius: 35px;
     &:not(:last-child) {
       margin-right: 10px;
     }
