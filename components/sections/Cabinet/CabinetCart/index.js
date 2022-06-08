@@ -6,6 +6,7 @@ import UserProductService from "services/UserProductService";
 import { useEffect, useState } from "react";
 import { useRouter } from 'next/router'
 import imgPlaceholder from '@/base/placeholder.png'
+import OrderService from "services/OrderService";
 
 export default function CabinetCart({ basket }) {
   const router = useRouter()
@@ -18,7 +19,6 @@ export default function CabinetCart({ basket }) {
     userNewPassword, userNewPasswordSet,
 
     getProfile,
-    updateInfo,
   } = useProfileStore(state => state)
 
   const deleteProduct = async (userProductId) => {
@@ -37,8 +37,18 @@ export default function CabinetCart({ basket }) {
   const [basketState, basketStateSet] = useState([])
   const [basketCount, basketCountSet] = useState(0)
 
-  const updateInfoAndCreeatePayment = (e) => {
-    updateInfo(e, userId)
+  const createPayment = async (e) => {
+    e.preventDefault()
+    try {
+      const { data: order } = await OrderService.createOne({
+        userEmail,
+        userName
+      })
+      alert("Успешно оплачено и отправлено на почту")
+    } catch (error) {
+
+    }
+
   }
 
   useEffect(() => {
@@ -106,35 +116,29 @@ export default function CabinetCart({ basket }) {
               )
             }
           </div>
-
-          {basketState && basketState.userProducts && basketState.userProducts.length > 0 && (
-            <div className="cabinet-cart__actions">
-              <button className="btn btn-outline-danger cabinet-cart__actions-item">Удалить все товары</button>
-            </div>
-          )}
         </div>
 
         {basketState && basketState.userProducts && basketState.userProducts.length > 0 && (
 
           <div className="cabinet-cart__info">
 
-            <form onSubmit={e => { updateInfoAndCreeatePayment(e) }} className="cabinet-cart__info-item">
+            <form onSubmit={e => { createPayment(e) }} className="cabinet-cart__info-item">
               <div className="cabinet-cart__billing">
                 <h2 className="cabinet-cart__billing-title">Контактные данные</h2>
 
                 <div className="auth__group mb-3">
                   <label className="form-label m-0">Email</label>
-                  <input defaultValue={userEmail} onChange={e => userEmailSet(e.target.value)} placeholder="Email" type="text" className="form-control" />
+                  <input readOnly defaultValue={userEmail} placeholder="Email" type="text" className="form-control" />
                 </div>
 
                 <div className="auth__group mb-3">
                   <label className="form-label m-0">ФИО</label>
-                  <input defaultValue={userName} onChange={e => userNameSet(e.target.value)} placeholder="ФИО" type="text" className="form-control" />
+                  <input readOnly defaultValue={userName} placeholder="ФИО" type="text" className="form-control" />
                 </div>
 
                 <div className="auth__group mb-3">
                   <label className="form-label m-0">Контактный телефон</label>
-                  <input defaultValue={userPhone} onChange={e => userPhoneSet(e.target.value)} placeholder="Контактный телефон" type="text" className="form-control" />
+                  <input readOnly defaultValue={userPhone} placeholder="Контактный телефон" type="text" className="form-control" />
                 </div>
               </div>
               <div className="cabinet-cart__total">

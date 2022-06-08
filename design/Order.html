@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/D.svg">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/lightslider.css">
+    <script src="js/Jquery.js"></script>
+    <script src="js/lightslider.js"></script>
+    <title>Заказ видео - dubrovinne</title>
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="nav-logo">dubrovinne</a>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Курсы</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Заказ видео</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Корзина</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="Сontacts.html" class="nav-link">Контакты</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="About.html" class="nav-link">О нас</a>
+                    </li>
+                    <li class="nav-item">
+                        <label class="modal-btn" for="modal-toggle">Войти</label>
+                        <input id="modal-toggle" type="checkbox">
+                        <label class="modal-backdrop" for="modal-toggle"></label>
+                        <div class="modal-content">
+                            <label class="modal-close-btn" for="modal-toggle">
+                                <svg width="30" height="30">
+                              <line x1="5" y1="5" x2="20" y2="20"/>
+                                  <line x1="20" y1="5" x2="5" y2="20"/>
+                                </svg>
+                            </label>
+                            <div class="tabs">
+                                <!--  LOG IN  -->
+                                <input class="radio" id="tab-1" name="tabs-name" type="radio" checked>
+                                <label for="tab-1" class="table"><span>Авторизация</span></label>
+                                <div class="tabs-content">
+                                    <form action="auth.php" method="post">
+                                        <input type="text" placeholder="Введите логин" id="login" name="login" required>
+                                        <input type="password" placeholder="Пароль" name="pass" id="pass" required>
+                                        <input type="submit" value="Log In">
+                                    </form>
+                                </div>
+                                <!--  SIGN UP  -->
+                                <input class="radio" id="tab-2" name="tabs-name" type="radio">
+                                <label for="tab-2" class="table"><span>Регистрация</span></label>
+                                <div class="tabs-content">
+                                    <form action="check.php" method="post">
+                                        <input type="text" placeholder="Введите логин" id="login" name="login" required>
+                                        <input type="password" placeholder="Пароль" name="pass" id="pass" required>
+                                        <input type="submit" value="Log In">
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <section class="arc-1" style="margin-top: 100px;">
+        <div class="container">
+            <div class="about-h1">Хочешь найти оператора, монтажера</div>
+            <div class="text-pl-logo">или других исполнителей для создания видео ролика?</div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row p-3 row-er">
+                <div class="col">
+                    <ul style="list-style-image:url(img/ссылка.png) " class="ul-text p-4">
+                        <li class="li1-text">Кто заказывает у нас видео</li>
+                        <li class="li2-text">Как заказать у нас видео</li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <img src="img/pixel.svg" width="530px" height="518px" alt="pixel">
+                </div>
+                <div class="col p-4">
+                    <div class="el"></div>
+                    <div class="h4-text">Мы обучили уже более 200 киноделов полноценному процессу создания видео: от основ операторской работы до монтажа готового видеоролика.</div>
+                    <div class="h5-text">Здесь ты можешь оставить заявку, чтобы найти надежных исполнителей среди наших студентов как для коммерческих проектов, так и для проектов на бюджетной основе.</div>
+                    <button type="button" class="btn btn-z btn-danger">Заказать видео</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="sec3" style="margin-top: 150px;">
+        <div class="container">
+            <h2 class="about-h1">Кому полезно заказать видео</h2>
+            <div class="row rowl d-flex justify-content-center">
+                <div class="col ser2">
+                    <p class="pp">Киноделам</p>
+                    Здесь вы сможете найти студента или бойца, который поможет вам в исполнении Домашнего Задания или при создании собственного творческого проекта.
+                </div>
+                <div class="col ser2">
+                    <p class="pp">Продюсерам</p>
+                    Здесь вы сможете найти надежных специалистов в свою команду, для создания желаемого видеоролика.
+                </div>
+                <div class="col ser2">
+                    <p class="pp">Заказчикам</p>
+                    Здесь вы сможете найти исполнителя, который с нуля создаст для вас полноценный качественный видеоролик.
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="sec3" style="margin-top: 150px;">
+        <div class="container">
+            <h2 class="about-h1">Введи свои данные и расскажи о проекте как можно подробнее,</h2>
+            <h3 class="text-pl-logo">и на твою заявку откликнутся наши студенты</h3>
+            <div class="input-ct">
+                <div class="form-floating mb-3 mx-auto">
+                    <input type="email " class="form-control " id="floatingInput " placeholder="none">
+                    <label class="form-control-t" for="floatingInput ">Имя</label>
+                </div>
+                <div class="form-floating mb-3 mx-auto">
+                    <input type="email " class="form-control " id="floatingInput " placeholder="none">
+                    <label class="form-control-t" for="floatingInput ">Ваш E-mail</label>
+                </div>
+                <div class="form-floating mb-3 mx-auto">
+                    <input type="email " class="form-control " id="floatingInput " placeholder="none">
+                    <label class="form-control-t" for="floatingInput ">Тема</label>
+                </div>
+                <div class="form-floating mb-3 mx-auto">
+                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" style="height: 69px;"></textarea>
+                    <label class="form-control-t" for="floatingTextarea">Предпочтение</label>
+                </div>
+                <div class="btn-ct">
+                    <button class="сt-1">Отправить</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="ft-1 " style="margin-top: 100px; ">
+        <div class="container ">
+            <div class="row row-ft justify-content-center ">
+                <div class="col col-ft ">
+                    <div class="col ">Последние исследования</div>
+                    <div class="col ">Курсы графического дизайна</div>
+                    <div class="col ">Курсы дизайна интерьера</div>
+                    <div class="col ">Курсы Photoshop</div>
+                    <div class="col ">Курсы SMM</div>
+                    <div class="col ">Курсы Геймдизайна</div>
+                    <div class="col col-cop "> © 2022 dubrovinne</div>
+                </div>
+                <div class="col col-ft-2 col align-self-end ">
+                    <div class="col ">
+                        <img src="img/instagram.png " alt="inst ">
+                        <img src="img/telegram.png " alt="tg ">
+                        <img src="img/vk.png " alt="vk ">
+                    </div>
+                    <div class="col ">Пользовательское соглашение</div>
+                    <div class="col ">Политика конфиденциальности</div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="scrollup" onclick="topFunction()" id="scrollup"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/smoothscroll/1.4.10/SmoothScroll.min.js" integrity="sha256-huW7yWl7tNfP7lGk46XE+Sp0nCotjzYodhVKlwaNeco=" crossorigin="anonymous">
+    </script>
+    <script src="js/js.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+
+</html>

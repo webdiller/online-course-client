@@ -20,10 +20,11 @@ export default function Product({ id, name, rating, images, stars, views, previu
         <img
           className="shared-product__img shared-product__img_catalog"
           alt={name}
-          src={images[0]}
+          src={images[0] ? images[0] : imgPlaceholder.src}
         />
+
         <div className="shared-product__content">
-        <span className="shared-product__views">Популярность: {views}</span>
+          <span className="shared-product__views">Популярность: {views}</span>
           <h3 className="shared-product__name">{name} </h3>
           <div className="shared-product__stars">
             {ratingArr.map((el, indx, arr) => (

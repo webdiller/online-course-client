@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/D.svg">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/lightslider.css">
+    <script src="js/Jquery.js"></script>
+    <script src="js/lightslider.js"></script>
+    <title>О нас - dubrovinne</title>
+</head>
+
+<body style="background-color: #fff;">
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="nav-logo">dubrovinne</a>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Курсы</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="Order.html" class="nav-link">Заказ видео</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Корзина</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="Сontacts.html" class="nav-link">Контакты</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">О нас</a>
+                    </li>
+                    <li class="nav-item">
+                        <label class="modal-btn" for="modal-toggle">Войти</label>
+                        <input id="modal-toggle" type="checkbox">
+                        <label class="modal-backdrop" for="modal-toggle"></label>
+                        <div class="modal-content">
+                            <label class="modal-close-btn" for="modal-toggle">
+                                <svg width="30" height="30">
+                              <line x1="5" y1="5" x2="20" y2="20"/>
+                                  <line x1="20" y1="5" x2="5" y2="20"/>
+                                </svg>
+                            </label>
+                            <div class="tabs">
+                                <!--  LOG IN  -->
+                                <input class="radio" id="tab-1" name="tabs-name" type="radio" checked>
+                                <label for="tab-1" class="table"><span>Авторизация</span></label>
+                                <div class="tabs-content">
+                                    <form action="auth.php" method="post">
+                                        <input type="text" placeholder="Введите логин" id="login" name="login" required>
+                                        <input type="password" placeholder="Пароль" name="pass" id="pass" required>
+                                        <input type="submit" value="Log In">
+                                    </form>
+                                </div>
+                                <!--  SIGN UP  -->
+                                <input class="radio" id="tab-2" name="tabs-name" type="radio">
+                                <label for="tab-2" class="table"><span>Регистрация</span></label>
+                                <div class="tabs-content">
+                                    <form action="check.php" method="post">
+                                        <input type="text" placeholder="Введите логин" id="login" name="login" required>
+                                        <input type="password" placeholder="Пароль" name="pass" id="pass" required>
+                                        <input type="submit" value="Log In">
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <section class="sc-6" style="margin-top: 100px;">
+        <div class="container">
+            <h1 class="about-h1">О нас</h1>
+        </div>
+        <div id="carouselExampleControls" style="margin-top: 50px ;" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="img/t1.svg" class="d-block w-100" alt="vk-h">
+                </div>
+                <div class="carousel-item">
+                    <img src="img/t2.svg" class="d-block w-100" alt="vk-h">
+                </div>
+                <div class="carousel-item ">
+                    <img src="img/t3.svg" class="d-block w-100" alt="vk-h">
+                </div>
+            </div>
+        </div>
+        <div class="container ">
+            <div class="text-about " style="letter-spacing: 1px; ">
+                <div class="text-h-logo ">
+                    dubrovinne — это образовательный блог, транслирующий опыт профессионалов: всё про софт, курсы, обучение, руководства по входу в информационные технологии, дизайн, маркетинг и менеджмент. Нашими подборками ресурсов пользуются тысячи людей ежедневно.
+                </div>
+                <p class="text-p-logo ">Что мы делаем:</p>
+                <ul class="text-u-logo p-4 ">
+                    <li class="text-li-logo ">Собираем коллекции бесплатных уроков, по которым учимся сами;</li>
+                    <li class="text-li-logo ">Следим за лучшими курсами и образовательными ресурсами, испытываем их на себе, пишем обзоры без цензуры;</li>
+                    <li class="text-li-logo ">Совместно с экспертами, составляем руководства по профессиям;</li>
+                    <li class="text-li-logo ">Отвечаем на все возможные вопросы и комментарии.</li>
+                </ul>
+                <p class="text-p-logo ">Кто пишет:</p>
+                <p class="text-pt-logo ">Редакция dubrovinne — это увлеченные своим делом авторы и эксперты. Наши авторы знают, о чем пишут: у всех большой опыт в диджитал и любовь к исследованиям. Наши эксперты занимают ведущие позиции в своих нишах, они руководят командами,
+                    ведут подкасты, преподают и работают в топовых проектах.</p>
+                <p class="text-pt-logo ">Более того, мы люди, которые учатся всю жизнь. Мы тоже пользуемся образовательными продуктами и растем профессионально вместе с вами.</p>
+                <p class="text-p-logo ">Редакционная политика</p>
+                <p class="text-pt-logo ">Мы гордимся качеством контента в нашем блоге. У нас есть статьи на сотни тем, все эти темы объединяет одно: это заинтересованный читатель в поиске информации, которой можно доверять. Наши авторы создают уникальный экспертный контент без
+                    предвзятости и цензуры. Отдельная наша любовь — дизайн и иллюстрация, поэтому у нас классный фирменный стиль, шрифты и картинки.</p>
+                <p class="text-pt-logo ">У нас редакционная независимость. Это значит, что мы сами выбираем тематику публикаций и методы работы, и мы не зависим от мнения владельца, так как у нас его нет.</p>
+                <p class="text-pt-logo ">Все рекомендации из нашего блога проверены авторами и экспертами лично. Мы увлеченно тестируем и исследуем всё, что мы рекомендуем. Помимо того, что мы полагаемся на собственный обширный опыт, мы также обращаемся к независимым экспертам
+                    и проводим интервью с программистами, дизайнерами, маркетологами и пользователями образовательных продуктов.</p>
+                <p class="text-pt-logo ">Если читатель решает купить продукт, который мы рекомендуем, исходя из проведенных нами исследований и интервью, то, в некоторых случаях, мы можем получать партнерскую комиссию от платформы, на которой покупка произошла. У нас нет мотивации
+                    рекомендовать неудачные продукты или прогибаться под давлением онлайн-школ, потому что читатель для нас на первом месте, и мы дорожим своей репутацией и популярностью. Мы приглашаем читателей проверять наши материалы, которые состоят
+                    из времени, логики и энергии, которые мы тратим на тщательные исследования, интервью с экспертами и многочасовое тестирование курсов.</p>
+                <p class="text-pt-logo ">Свяжитесь с нами, если вам нужен совет по обучению в диджитал специальности. Нам интересно общаться с читателями, мы обязательно постараемся вам помочь.</p>
+            </div>
+    </section>
+    <section>
+        <div class="container">
+            <h4>Отзывы</h4>
+            <p><textarea id="message" placeholder="Текст сообщения"></textarea></p>
+            <p><button id="post_query">Отправить</button></p>
+        </div>
+    </section>
+    <footer class="ft-1 " style="margin-top: 100px; ">
+        <div class="container ">
+            <div class="row row-ft justify-content-center ">
+                <div class="col col-ft ">
+                    <div class="col ">Последние исследования</div>
+                    <div class="col ">Курсы графического дизайна</div>
+                    <div class="col ">Курсы дизайна интерьера</div>
+                    <div class="col ">Курсы Photoshop</div>
+                    <div class="col ">Курсы SMM</div>
+                    <div class="col ">Курсы Геймдизайна</div>
+                    <div class="col col-cop "> © 2022 dubrovinne</div>
+                </div>
+                <div class="col col-ft-2 col align-self-end ">
+                    <div class="col ">
+                        <img src="img/instagram.png " alt="inst ">
+                        <img src="img/telegram.png " alt="tg ">
+                        <img src="img/vk.png " alt="vk ">
+                    </div>
+                    <div class="col ">Пользовательское соглашение</div>
+                    <div class="col ">Политика конфиденциальности</div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+
+
+
+
+
+
+
+    <div class="scrollup" onclick="topFunction()" id="scrollup"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/smoothscroll/1.4.10/SmoothScroll.min.js " integrity="sha256-huW7yWl7tNfP7lGk46XE+Sp0nCotjzYodhVKlwaNeco=" crossorigin=" anonymous ">
+    </script>
+    <script src="js/js.js "></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js " integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p " crossorigin="anonymous "></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js " integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p " crossorigin="anonymous "></script>
+</body>
+
+</html>

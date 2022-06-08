@@ -72,9 +72,9 @@ export default function AdminEditProducts({ product }) {
             {/* <img src="/product.png" alt="products" className="admin-products__img" /> */}
 
             <div className="admin-products__group mb-3">
-                <label className="form-label mb-0">Id курса</label>
-                <input readOnly defaultValue={product.id} placeholder="Id" type="text" className="form-control" />
-              </div>
+              <label className="form-label mb-0">Id курса</label>
+              <input readOnly defaultValue={product.id} placeholder="Id" type="text" className="form-control" />
+            </div>
 
             <div className="admin-products__group ui-input">
               <label className="text ui-input__label">Название:</label>
@@ -104,7 +104,6 @@ export default function AdminEditProducts({ product }) {
             <div className="admin-products__group ui-input">
               <label className="text ui-input__label">Категория:</label>
               <Select
-                isDisabled
                 defaultValue={{ value: product.category.category.id, label: product.category.category.name, categoryId: product.category.category.id }}
                 onChange={selectedCategorySet}
                 options={dbCategories}

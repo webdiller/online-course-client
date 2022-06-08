@@ -20,10 +20,10 @@ export default function Product({ product }) {
       alert(`Необходимо войти на сайт`)
       return
     }
-
     if (userId && basket) {
       try {
         const { data, status } = await UserProductService.createOne(userId, basket.id, productId, 1)
+        
         if (status == 200) {
           alert('Успешно добавлено в корзину')
         }

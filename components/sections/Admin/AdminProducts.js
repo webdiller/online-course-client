@@ -38,9 +38,10 @@ export default function AdminProducts() {
               rating,
               slug
             } = product;
+
             return (
               <div key={id} className="admin-products__product">
-                <img src={images[0]} alt="products" className="admin-products__img" />
+                <img src={images[0] ? images[0] : imgPlaceholder.src} alt="products" className="admin-products__img" />
 
                 <div className="admin-products__group ui-input">
                   <label className="text ui-input__label">Название: {name}</label>

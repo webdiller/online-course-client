@@ -1,0 +1,14 @@
+.what-you-will-learn {
+  
+}
+
+.what-you-will-learn__container {
+  margin-bottom: 40px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 20px;
+  @include media('<=768px') {
+    grid-template-columns: 1fr;
+    row-gap: 10px;
+  }
+}
