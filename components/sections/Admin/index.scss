@@ -46,6 +46,15 @@
     }
   }
 
+  &__form-area {
+    display: grid;
+    grid-template-columns: 300px;
+    gap: 30px;
+    @include media("<=768px") {
+      gap: 15px;
+    }
+  }
+
   &__product {
     position: relative;
   }

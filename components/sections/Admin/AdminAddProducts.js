@@ -3,9 +3,9 @@ import React, { useEffect, useState } from 'react'
 import CategoryService from 'services/CategoryService';
 import ProductService from 'services/ProductService';
 import { useRouter } from 'next/router'
+import { Widget } from '@uploadcare/react-widget'
 
 export default function AdminAddProducts() {
-
   const router = useRouter()
 
   const [dbCategories, dbCategoriesSet] = useState([])
@@ -65,37 +65,32 @@ export default function AdminAddProducts() {
       <div className="container admin-products__container">
         <p className="admin-products__title">Добавить курс</p>
 
-        <div className="admin-products__products">
+        <div className="admin-products__form-area">
           <form onSubmit={onSubmitHandler} className="admin-products__product">
             {/* <img src="/product.png" alt="products" className="admin-products__img" /> */}
 
-            <div className="admin-products__group ui-input">
-              <label className="text ui-input__label">Название:</label>
-              <input onChange={e => newProductSet({ ...newProduct, name: e.target.value })} defaultValue={newProduct.name} type="text" className="ui-input__field" />
+            <div className="auth__group mb-3">
+              <label className="form-label mb-0">Название:</label>
+              <input onChange={e => newProductSet({ ...newProduct, name: e.target.value })} defaultValue={newProduct.name} type="text" className="form-control" />
             </div>
-
-            <div className="admin-products__group ui-input">
-              <label className="text ui-input__label">Описание:</label>
-              <input onChange={e => newProductSet({ ...newProduct, description: e.target.value })} defaultValue={newProduct.description} type="text" className="ui-input__field" />
+            <div className="auth__group mb-3">
+              <label className="form-label mb-0">Описание:</label>
+              <input onChange={e => newProductSet({ ...newProduct, description: e.target.value })} defaultValue={newProduct.description} type="text" className="form-control" />
             </div>
-
-            <div className="admin-products__group ui-input">
-              <label className="text ui-input__label">Старая цена:</label>
-              <input onChange={e => newProductSet({ ...newProduct, previousPrice: e.target.value })} defaultValue={newProduct.previousPrice} type="number" className="ui-input__field" />
+            <div className="auth__group mb-3">
+              <label className="form-label mb-0">Старая цена:</label>
+              <input onChange={e => newProductSet({ ...newProduct, previousPrice: e.target.value })} defaultValue={newProduct.previousPrice} type="number" className="form-control" />
             </div>
-
-            <div className="admin-products__group ui-input">
-              <label className="text ui-input__label">Текущая цена:</label>
-              <input onChange={e => newProductSet({ ...newProduct, currentPrice: e.target.value })} defaultValue={newProduct.currentPrice} type="number" className="ui-input__field" />
+            <div className="auth__group mb-3">
+              <label className="form-label mb-0">Текущая цена:</label>
+              <input onChange={e => newProductSet({ ...newProduct, currentPrice: e.target.value })} defaultValue={newProduct.currentPrice} type="number" className="form-control" />
             </div>
-
-            <div className="admin-products__group ui-input">
-              <label className="text ui-input__label">Рейтинг:</label>
-              <input onChange={e => newProductSet({ ...newProduct, rating: e.target.value })} defaultValue={newProduct.rating} type="text" className="ui-input__field" />
+            <div className="auth__group mb-3">
+              <label className="form-label mb-0">Рейтинг:</label>
+              <input onChange={e => newProductSet({ ...newProduct, rating: e.target.value })} defaultValue={newProduct.rating} type="number" className="form-control" />
             </div>
-
             <div className="admin-products__group ui-input">
-              <label className="text ui-input__label">Категория:</label>
+              <label className="form-label mb-0">Категория:</label>
               <Select
                 defaultValue={selectedCategory}
                 onChange={selectedCategorySet}
@@ -105,7 +100,7 @@ export default function AdminAddProducts() {
             </div>
 
             <div className="admin-products__group ui-input">
-              <label className="text ui-input__label">Статус:</label>
+              <label className="form-label mb-0">Статус:</label>
               <Select
                 defaultValue={{ ...optionsPublished[1] }}
                 onChange={selectPublishedSet}
@@ -115,11 +110,15 @@ export default function AdminAddProducts() {
             </div>
 
             <div className="admin-products__actions">
-              <button type='reset' className="ui-link ui-link ui-link_red-border admin-products__submit">Отмена</button>
-              <button type='submit' className="ui-link ui-link ui-link_green-border admin-products__submit">Добавить</button>
+              <button type='reset' className="btn btn-outline-danger admin-products__submit">Отмена</button>
+              <button type='submit' className="btn btn-outline-primary admin-products__submit">Добавить</button>
             </div>
           </form>
-
+          {/* <label htmlFor='file'>Ваш файл:</label>{' '}
+          <Widget
+            locale='ru'
+            key={process.env.NEXT_PUBLIC_UPLOADCARE_PUBLIC_KEY}
+          /> */}
         </div>
       </div>
     </div>

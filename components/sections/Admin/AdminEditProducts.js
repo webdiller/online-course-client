@@ -71,38 +71,32 @@ export default function AdminEditProducts({ product }) {
           <form onSubmit={onSubmitHandler} className="admin-products__product">
             {/* <img src="/product.png" alt="products" className="admin-products__img" /> */}
 
-            <div className="admin-products__group mb-3">
-              <label className="form-label mb-0">Id курса</label>
+            <div className="auth__group mb-3">
+              <label className="form-label mb-0">Id курса:</label>
               <input readOnly defaultValue={product.id} placeholder="Id" type="text" className="form-control" />
             </div>
-
-            <div className="admin-products__group ui-input">
-              <label className="text ui-input__label">Название:</label>
-              <input onChange={e => newProductSet({ ...newProduct, name: e.target.value })} value={newProduct.name} type="text" className="ui-input__field" />
+            <div className="auth__group mb-3">
+              <label className="form-label mb-0">Название:</label>
+              <input onChange={e => newProductSet({ ...newProduct, name: e.target.value })} value={newProduct.name} type="text" className="form-control" />
             </div>
-
-            <div className="admin-products__group ui-input">
-              <label className="text ui-input__label">Описание:</label>
-              <input onChange={e => newProductSet({ ...newProduct, description: e.target.value })} value={newProduct.description} type="text" className="ui-input__field" />
+            <div className="auth__group mb-3">
+              <label className="form-label mb-0">Описание:</label>
+              <input onChange={e => newProductSet({ ...newProduct, description: e.target.value })} value={newProduct.description} type="text" className="form-control" />
             </div>
-
-            <div className="admin-products__group ui-input">
-              <label className="text ui-input__label">Старая цена:</label>
-              <input onChange={e => newProductSet({ ...newProduct, previousPrice: e.target.value })} value={newProduct.previousPrice} type="number" className="ui-input__field" />
+            <div className="auth__group mb-3">
+              <label className="form-label mb-0">Старая цена:</label>
+              <input onChange={e => newProductSet({ ...newProduct, previousPrice: e.target.value })} value={newProduct.previousPrice} type="number" className="form-control" />
             </div>
-
-            <div className="admin-products__group ui-input">
-              <label className="text ui-input__label">Текущая цена:</label>
-              <input onChange={e => newProductSet({ ...newProduct, currentPrice: e.target.value })} value={newProduct.currentPrice} type="number" className="ui-input__field" />
+            <div className="auth__group mb-3">
+              <label className="form-label mb-0">Текущая цена:</label>
+              <input onChange={e => newProductSet({ ...newProduct, currentPrice: e.target.value })} value={newProduct.currentPrice} type="number" className="form-control" />
             </div>
-
-            <div className="admin-products__group ui-input">
-              <label className="text ui-input__label">Рейтинг:</label>
-              <input onChange={e => newProductSet({ ...newProduct, rating: e.target.value })} value={newProduct.rating} type="text" className="ui-input__field" />
+            <div className="auth__group mb-3">
+              <label className="form-label mb-0">Рейтинг:</label>
+              <input onChange={e => newProductSet({ ...newProduct, rating: e.target.value })} value={newProduct.rating} type="number" className="form-control" />
             </div>
-
             <div className="admin-products__group ui-input">
-              <label className="text ui-input__label">Категория:</label>
+              <label className="form-label mb-0">Категория:</label>
               <Select
                 defaultValue={{ value: product.category.category.id, label: product.category.category.name, categoryId: product.category.category.id }}
                 onChange={selectedCategorySet}
@@ -112,7 +106,7 @@ export default function AdminEditProducts({ product }) {
             </div>
 
             <div className="admin-products__group ui-input">
-              <label className="text ui-input__label">Статус:</label>
+              <label className="form-label mb-0">Статус:</label>
               <Select
                 isDisabled
                 defaultValue={{ ...optionsPublished[1] }}
