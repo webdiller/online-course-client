@@ -6,6 +6,7 @@ import { useProfileStore } from "@/store/profile";
 
 const SiteLayout = ({ children }) => {
   const {
+    roleSet,
     isAuth,
     userId,
     userIdSet,
@@ -19,11 +20,12 @@ const SiteLayout = ({ children }) => {
   useEffect(() => {
     const refresh = async () => {
       try {
-        const { data: { id, email, basketId, tokens: { accessToken } }, status } = await AuthService.refresh()
+        const { data: { role, id, email, basketId, tokens: { accessToken } }, status } = await AuthService.refresh()
         localStorage.setItem('token', accessToken)
         authSet(true)
         authLoadingSet(false)
         userIdSet(id);
+        roleSet(role)
         userEmailSet(email);
       } catch (error) {
         const { status } = error.response;

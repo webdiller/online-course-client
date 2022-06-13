@@ -9,7 +9,7 @@ import { useProfileStore } from "@/store/profile";
 import imgPlaceholder from '@/base/placeholder.png'
 
 export default function Product({ product }) {
-  const { id, name, slug, description, previousPrice, currentPrice, views, rating, available, images } = product;
+  const { id, name, slug, description, previousPrice, currentPrice, views, rating, available, images, mainImg, link } = product;
   const swiperRef = useRef();
 
   const { isAuth, userId } = useAuthStore(state => state)
@@ -51,7 +51,7 @@ export default function Product({ product }) {
     <>
       <div className="product">
         <div className="container product__container">
-          <img width={900} height={900} src={images[0] ? images[0] : imgPlaceholder.src} alt={name} className="product__img" />
+          <img width={900} height={900} src={mainImg ? mainImg : imgPlaceholder.src} alt={name} className="product__img" />
           <form className="product__info">
             <div className="product__info-container">
               <h1 className="text product__info-name">{name}</h1>

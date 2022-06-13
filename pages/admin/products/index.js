@@ -1,8 +1,9 @@
 import Head from 'next/head'
 import { AdminNav, AdminProducts } from "@/sections/Admin";
 import { getLayout } from '@/components/layouts/AdminLayout';
+import ProductService from 'services/ProductService';
 
-const AdminProductsPage = () => {
+const AdminProductsPage = ({ products }) => {
   return (
     <>
       <Head>
@@ -13,7 +14,7 @@ const AdminProductsPage = () => {
       <div className="admin">
         <div className="admin__container">
           <AdminNav />
-          <AdminProducts />
+          <AdminProducts products={products} />
         </div>
       </div>
     </>
@@ -22,3 +23,13 @@ const AdminProductsPage = () => {
 
 AdminProductsPage.getLayout = getLayout
 export default AdminProductsPage
+
+export const getServerSideProps = async () => {
+  const { data: products } = await ProductService.getAll({ take: 1000000 })
+
+  return {
+    props: {
+      products
+    }
+  }
+}

@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react'
 import CategoryService from 'services/CategoryService';
 import ProductService from 'services/ProductService';
 import { useRouter } from 'next/router'
-import { Widget } from '@uploadcare/react-widget'
 
 export default function AdminAddProducts() {
   const router = useRouter()
@@ -16,6 +15,8 @@ export default function AdminAddProducts() {
     previousPrice: 0,
     currentPrice: 0,
     rating: 0,
+    mainImg: "",
+    link: ""
   });
 
   const [selectedCategory, selectedCategorySet] = useState([])
@@ -35,12 +36,14 @@ export default function AdminAddProducts() {
         previousPrice: newProduct.previousPrice,
         currentPrice: newProduct.currentPrice,
         rating: newProduct.rating,
+        mainImg: newProduct.mainImg,
+        link: newProduct.link,
 
         available: selectPublished.value,
         categoryId: selectedCategory.categoryId
       })
       alert(`Курс успешно создан`)
-      router.push(`/product/${id}`)
+      router.push(`/admin/products`)
     } catch (error) {
       console.log(error);
       alert(`Не удалось создать курс`)
@@ -60,6 +63,18 @@ export default function AdminAddProducts() {
     getCategories()
   }, [])
 
+  const onResetandler = () => {
+    newProductSet({
+      name: "",
+      description: "",
+      previousPrice: 0,
+      currentPrice: 0,
+      rating: 0,
+      mainImg: "",
+      link: ""
+    })
+  }
+
   return (
     <div className="admin-products">
       <div className="container admin-products__container">
@@ -67,29 +82,36 @@ export default function AdminAddProducts() {
 
         <div className="admin-products__form-area">
           <form onSubmit={onSubmitHandler} className="admin-products__product">
-            {/* <img src="/product.png" alt="products" className="admin-products__img" /> */}
 
             <div className="auth__group mb-3">
+              <label className="form-label mb-0">Главное изображение:</label>
+              <input onChange={e => newProductSet({ ...newProduct, mainImg: e.target.value })} defaultValue={newProduct.mainImg} type="text" className="form-control" />
+            </div>
+            <div className="auth__group mb-3">
+              <label className="form-label mb-0">Ссылка на скачивание:</label>
+              <input onChange={e => newProductSet({ ...newProduct, link: e.target.value })} defaultValue={newProduct.link} type="text" className="form-control" />
+            </div>
+            <div className="auth__group mb-3">
               <label className="form-label mb-0">Название:</label>
-              <input onChange={e => newProductSet({ ...newProduct, name: e.target.value })} defaultValue={newProduct.name} type="text" className="form-control" />
+              <input required minLength={5} onChange={e => newProductSet({ ...newProduct, name: e.target.value })} defaultValue={newProduct.name} type="text" className="form-control" />
             </div>
             <div className="auth__group mb-3">
               <label className="form-label mb-0">Описание:</label>
-              <input onChange={e => newProductSet({ ...newProduct, description: e.target.value })} defaultValue={newProduct.description} type="text" className="form-control" />
+              <input required minLength={10} onChange={e => newProductSet({ ...newProduct, description: e.target.value })} defaultValue={newProduct.description} type="text" className="form-control" />
             </div>
             <div className="auth__group mb-3">
               <label className="form-label mb-0">Старая цена:</label>
-              <input onChange={e => newProductSet({ ...newProduct, previousPrice: e.target.value })} defaultValue={newProduct.previousPrice} type="number" className="form-control" />
+              <input required minLength={10} onChange={e => newProductSet({ ...newProduct, previousPrice: e.target.value })} defaultValue={newProduct.previousPrice} type="number" className="form-control" />
             </div>
             <div className="auth__group mb-3">
               <label className="form-label mb-0">Текущая цена:</label>
-              <input onChange={e => newProductSet({ ...newProduct, currentPrice: e.target.value })} defaultValue={newProduct.currentPrice} type="number" className="form-control" />
+              <input required onChange={e => newProductSet({ ...newProduct, currentPrice: e.target.value })} defaultValue={newProduct.currentPrice} type="number" className="form-control" />
             </div>
             <div className="auth__group mb-3">
               <label className="form-label mb-0">Рейтинг:</label>
               <input onChange={e => newProductSet({ ...newProduct, rating: e.target.value })} defaultValue={newProduct.rating} type="number" className="form-control" />
             </div>
-            <div className="admin-products__group ui-input">
+            <div className="admin-products__group ui-input mb-3">
               <label className="form-label mb-0">Категория:</label>
               <Select
                 defaultValue={selectedCategory}
@@ -99,26 +121,11 @@ export default function AdminAddProducts() {
               />
             </div>
 
-            <div className="admin-products__group ui-input">
-              <label className="form-label mb-0">Статус:</label>
-              <Select
-                defaultValue={{ ...optionsPublished[1] }}
-                onChange={selectPublishedSet}
-                options={optionsPublished}
-                placeholder="Выбрать тип публикации"
-              />
-            </div>
-
             <div className="admin-products__actions">
-              <button type='reset' className="btn btn-outline-danger admin-products__submit">Отмена</button>
+              <button onClick={onResetandler} type='reset' className="btn btn-outline-danger admin-products__submit">Отмена</button>
               <button type='submit' className="btn btn-outline-primary admin-products__submit">Добавить</button>
             </div>
           </form>
-          {/* <label htmlFor='file'>Ваш файл:</label>{' '}
-          <Widget
-            locale='ru'
-            key={process.env.NEXT_PUBLIC_UPLOADCARE_PUBLIC_KEY}
-          /> */}
         </div>
       </div>
     </div>

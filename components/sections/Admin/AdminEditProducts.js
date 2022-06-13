@@ -16,6 +16,8 @@ export default function AdminEditProducts({ product }) {
     previousPrice: product.previousPrice,
     currentPrice: product.currentPrice,
     rating: product.rating,
+    mainImg: product.mainImg || "",
+    link: product.link || ""
   });
 
 
@@ -37,6 +39,8 @@ export default function AdminEditProducts({ product }) {
         previousPrice: newProduct.previousPrice,
         currentPrice: newProduct.currentPrice,
         rating: newProduct.rating,
+        mainImg: newProduct.mainImg,
+        link: newProduct.link,
 
         available: selectPublished.value,
         categoryId: selectedCategory.categoryId,
@@ -67,13 +71,20 @@ export default function AdminEditProducts({ product }) {
       <div className="container admin-products__container">
         <p className="admin-products__title">Редактировать курс</p>
 
-        <div className="admin-products__products">
+        <div className="admin-products__form-area">
           <form onSubmit={onSubmitHandler} className="admin-products__product">
-            {/* <img src="/product.png" alt="products" className="admin-products__img" /> */}
 
             <div className="auth__group mb-3">
               <label className="form-label mb-0">Id курса:</label>
               <input readOnly defaultValue={product.id} placeholder="Id" type="text" className="form-control" />
+            </div>
+            <div className="auth__group mb-3">
+              <label className="form-label mb-0">Главное изображение:</label>
+              <input onChange={e => newProductSet({ ...newProduct, mainImg: e.target.value })} defaultValue={newProduct.mainImg} type="text" className="form-control" />
+            </div>
+            <div className="auth__group mb-3">
+              <label className="form-label mb-0">Ссылка на скачивание:</label>
+              <input onChange={e => newProductSet({ ...newProduct, link: e.target.value })} defaultValue={newProduct.link} type="text" className="form-control" />
             </div>
             <div className="auth__group mb-3">
               <label className="form-label mb-0">Название:</label>
@@ -95,24 +106,13 @@ export default function AdminEditProducts({ product }) {
               <label className="form-label mb-0">Рейтинг:</label>
               <input onChange={e => newProductSet({ ...newProduct, rating: e.target.value })} value={newProduct.rating} type="number" className="form-control" />
             </div>
-            <div className="admin-products__group ui-input">
+            <div className="admin-products__group ui-input mb-3">
               <label className="form-label mb-0">Категория:</label>
               <Select
                 defaultValue={{ value: product.category.category.id, label: product.category.category.name, categoryId: product.category.category.id }}
                 onChange={selectedCategorySet}
                 options={dbCategories}
                 placeholder="Выбрать категорию"
-              />
-            </div>
-
-            <div className="admin-products__group ui-input">
-              <label className="form-label mb-0">Статус:</label>
-              <Select
-                isDisabled
-                defaultValue={{ ...optionsPublished[1] }}
-                onChange={selectPublishedSet}
-                options={optionsPublished}
-                placeholder="Выбрать тип публикации"
               />
             </div>
 

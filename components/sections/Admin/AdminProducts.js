@@ -2,22 +2,21 @@ import React, { useEffect, useState } from 'react'
 import ProductService from 'services/ProductService'
 import imgPlaceholder from '@/base/placeholder.png'
 import Link from "next/link";
+import { useRouter } from 'next/router'
 
-export default function AdminProducts() {
+export default function AdminProducts({ products }) {
+  const router = useRouter()
 
-  const [products, productsSet] = useState([])
-
-  useEffect(() => {
-    const getProducts = async () => {
-      try {
-        const { data, status } = await ProductService.getAll({ take: 1000000 })
-        productsSet(data)
-      } catch (error) {
-        alert(`Непредвиденна ошибка`)
-      }
+  const onDelete = async (id) => {
+    try {
+      const { data } = await ProductService.deleteOne(id)
+      console.log(data);
+      router.reload()
+      alert('Успешное удаление подукта')
+    } catch (error) {
+      alert('Ошибка во время удаления подукта')
     }
-    getProducts()
-  }, [])
+  }
 
   return (
     <div className="admin-products">
@@ -28,7 +27,7 @@ export default function AdminProducts() {
           {products.map((product) => {
             const {
               id,
-              category,
+              category: { category: { slug: categorySlug } },
               available,
               currentPrice,
               description,
@@ -36,22 +35,26 @@ export default function AdminProducts() {
               name,
               previousPrice,
               rating,
-              slug
+              slug,
+              mainImg,
+              link
             } = product;
 
             return (
               <div key={id} className="admin-products__product">
-                <img src={images[0] ? images[0] : imgPlaceholder.src} alt="products" className="admin-products__img" />
+                <img src={mainImg ? mainImg : imgPlaceholder.src} alt="products" className="admin-products__img" />
 
                 <div className="admin-products__group ui-input">
                   <label className="text ui-input__label">Название: {name}</label>
                 </div>
 
-                <div className="admin-products__group ui-input">
+                <div className="admin-products__group ui-input mb-3">
                   <label className="text ui-input__label">Цена: {currentPrice}</label>
                 </div>
 
-                <Link href={`/admin/products/${id}/edit`}><a className="btn btn-outline-dark admin-products__edit">Редактировать</a></Link>
+                <Link href={`/product/${id}`}><a className="btn btn-outline-primary admin-products__edit mb-2">Перейти</a></Link>
+                <Link href={`/admin/products/${id}/edit`}><a className="btn btn-outline-dark admin-products__edit mb-2">Редактировать</a></Link>
+                <button onClick={() => onDelete(id)} className="btn btn-outline-danger  admin-products__edit">Удалить</button>
               </div>
             )
           })}

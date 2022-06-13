@@ -1,14 +1,10 @@
 import Link from "next/link";
-import { RiShoppingCart2Fill } from 'react-icons/ri';
-import { GrMenu } from 'react-icons/gr';
-import { CgCloseO } from 'react-icons/cg';
-import { IoIosWallet } from 'react-icons/io';
 import { useEffect, useState } from "react";
 import { useAuthStore } from "@/store/auth";
 import { useProfileStore } from "@/store/profile";
 
 export default function TopNav() {
-  const { isAuth, userEmail } = useAuthStore(state => state)
+  const { role, isAuth, userEmail } = useAuthStore(state => state)
   const [activeMenu, activeMenuSet] = useState();
 
   const { basket } = useProfileStore(state => state)
@@ -58,6 +54,7 @@ export default function TopNav() {
                     <li className="nav-item navbar__wallet">
                       {isAuth && (<Link href="/cabinet/cart"><a className="nav-link" tabIndex="-1" aria-disabled="true">Мои курсы</a></Link>)}
                     </li>
+                    {isAuth && role === 'ADMIN' && (<Link href="/admin/products"><a className="nav-link" tabIndex="-1" aria-disabled="true">Админка</a></Link>)}
                     <li className="nav-item navbar__cabinet-login">
                       {!isAuth
                         ? (<Link href="/auth/login"><a className="nav-link" tabIndex="-1" aria-disabled="true">Войти</a></Link>)

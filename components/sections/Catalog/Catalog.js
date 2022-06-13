@@ -4,7 +4,7 @@ import TopFilter from "./TopFilter";
 import imgPlaceholder from '@/base/placeholder.png'
 
 export default function Catalog({ products }) {
-  console.log(products);
+
   return (
     <div className="catalog">
       <div className="container catalog__container">
@@ -20,9 +20,10 @@ export default function Catalog({ products }) {
             rating,
             available,
             category,
-            images
+            images,
+            mainImg, 
+            link
           } = product;
-
           return (
             <Product
               views={views}
@@ -34,6 +35,8 @@ export default function Catalog({ products }) {
               name={name}
               previusPrice={`${previousPrice} руб.`}
               currentPrice={`${currentPrice} руб.`}
+              mainImg={mainImg}
+              link={link}
             />
           )
         })}

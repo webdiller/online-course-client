@@ -1,9 +1,10 @@
 import create from 'zustand'
-
-import AuthService from 'services/AuthService';
 import { mountStoreDevtool } from 'simple-zustand-devtools';
 
 export const useAuthStore = create((set, get) => ({
+
+  role: false,
+  roleSet: (condition) => set(state => ({ role: condition })),
 
   isAuth: false,
   authSet: (condition) => set(state => ({ isAuth: condition })),

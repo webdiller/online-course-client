@@ -6,7 +6,7 @@ import { useAuthStore } from "@/store/auth";
 
 export default function UseLogin() {
 
-  const { authSet, authLoadingSet, userEmailSet, userIdSet } = useAuthStore(state => state)
+  const { roleSet, authSet, authLoadingSet, userEmailSet, userIdSet } = useAuthStore(state => state)
 
   const router = useRouter()
 
@@ -20,7 +20,7 @@ export default function UseLogin() {
       const { data, status } = await AuthService.loginByEmail(email, password);
 
       if (status === 200) {
-        const { id, email, isActivated, tokens: { accessToken } } = data;
+        const { role, id, email, isActivated, tokens: { accessToken } } = data;
         /** Если в ответе не 200, то нужно подтвердить аккаунт */
         if (!isActivated) {
           authSet(false)
@@ -31,6 +31,7 @@ export default function UseLogin() {
           localStorage.setItem('token', accessToken)
           authSet(true)
           userIdSet(id)
+          roleSet(role)
           authLoadingSet(false)
           userEmailSet(email)
           router.push('/cabinet')

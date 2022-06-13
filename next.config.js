@@ -4,7 +4,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 
 const nextConfig = withBundleAnalyzer({
   images: {
-    domains: ['loremflickr.com', 'ibb.co', 'ucarecdn.com']
+    domains: ['loremflickr.com', 'ibb.co', 'ucarecdn.com', 'storage.yandexcloud.net']
   },
   env: {
     HOST: process.env.NODE_ENV === 'production' ? '194.58.111.59' : 'http://localhost:3000',

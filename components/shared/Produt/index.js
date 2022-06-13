@@ -5,7 +5,7 @@ import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
 // TODO: Сделать отображение плейсхолдера
 import imgPlaceholder from "@/base/placeholder.png";
 
-export default function Product({ id, name, rating, images, stars, views, previusPrice, currentPrice, classNames }) {
+export default function Product({ id, name, rating, images, stars, views, previusPrice, currentPrice, classNames, mainImg, link }) {
 
   const ratingArr = []
   for (let x = 1; x < 6; x++) {
@@ -20,7 +20,7 @@ export default function Product({ id, name, rating, images, stars, views, previu
         <img
           className="shared-product__img shared-product__img_catalog"
           alt={name}
-          src={images[0] ? images[0] : imgPlaceholder.src}
+          src={mainImg ? mainImg : imgPlaceholder.src}
         />
 
         <div className="shared-product__content">

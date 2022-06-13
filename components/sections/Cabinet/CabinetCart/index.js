@@ -46,9 +46,7 @@ export default function CabinetCart({ basket }) {
       })
       alert("Успешно оплачено и отправлено на почту")
     } catch (error) {
-
     }
-
   }
 
   useEffect(() => {
@@ -87,17 +85,15 @@ export default function CabinetCart({ basket }) {
                     previousPrice,
                     rating,
                     slug,
-                    views
+                    views,
+                    mainImg,
+                    link
                   }
                 } = product;
 
                 return (
                   <div key={userProductId} className="cabinet-cart__product">
-                    {(images && images.length > 0) ? (
-                      <img src={images[0]} alt="product" className="cabinet-cart__product-img" />
-                    ) : (
-                      <img src={imgPlaceholder.src} alt="product" className="cabinet-cart__product-img" />
-                    )}
+                    <img src={mainImg ? mainImg : imgPlaceholder.src} alt="products" className="cabinet-cart__product-img" />
                     <div className="cabinet-cart__product-content">
                       <button onClick={() => deleteProduct(userProductId)} className="reset-btn cabinet-cart__product-close"><CgCloseO /></button>
                       <p className="text cabinet-cart__product-name">{name}</p>
