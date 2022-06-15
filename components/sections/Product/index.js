@@ -46,7 +46,7 @@ export default function Product({ product }) {
               <h3 className="text product__info-price-prev">{`${previousPrice} руб.`}</h3>
               <h2 className="text product__info-price-current mb-3">{`${currentPrice} руб.`}</h2>
               {category.slug === 'free' ? (
-                <a target={"_blank"} className="btn btn-outline-primary product__info-submit" download={link} href={link}>Скачать курс</a>
+                <a rel="noreferrer" target={"_blank"} className="btn btn-outline-primary product__info-submit" download={link} href={link}>Скачать курс</a>
               ) : (
                 <button onClick={() => addProduct(id)} type="button" className="btn btn-outline-primary product__info-submit">Добавить в корзину</button>
               )}
