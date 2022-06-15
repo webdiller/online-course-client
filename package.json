@@ -8,8 +8,7 @@
     "export": "next build && next export",
     "start": "next start -p $PORT",
     "analyze": "cross-env ANALYZE=true next build",
-    "lint": "next lint",
-    "heroku-postbuild": "npm run build"
+    "lint": "next lint"
   },
   "dependencies": {
     "@next/bundle-analyzer": "^12.1.4",
