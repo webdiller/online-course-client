@@ -1,15 +1,14 @@
 /* eslint-disable @next/next/no-img-element */
-import { Swiper, SwiperSlide } from "swiper/react";
-import { RiShoppingCart2Fill } from 'react-icons/ri';
 import { useEffect, useRef, useState } from "react";
 import { BsChevronLeft, BsChevronRight } from 'react-icons/bs';
 import UserProductService from "services/UserProductService";
 import { useAuthStore } from "@/store/auth";
 import { useProfileStore } from "@/store/profile";
 import imgPlaceholder from '@/base/placeholder.png'
+import Link from "next/link";
 
 export default function Product({ product }) {
-  const { id, name, slug, description, previousPrice, currentPrice, views, rating, available, images, mainImg, link } = product;
+  const { id, name, category: { category }, slug, description, previousPrice, currentPrice, views, rating, available, images, mainImg, link } = product;
   const swiperRef = useRef();
 
   const { isAuth, userId } = useAuthStore(state => state)
@@ -23,7 +22,7 @@ export default function Product({ product }) {
     if (userId && basket) {
       try {
         const { data, status } = await UserProductService.createOne(userId, basket.id, productId, 1)
-        
+
         if (status == 200) {
           alert('Успешно добавлено в корзину')
         }
@@ -32,20 +31,6 @@ export default function Product({ product }) {
       }
     }
   }
-
-  useEffect(() => {
-    const resizeFoo = e => {
-      try {
-        if (swiperRef.current) {
-          swiperRef.current.update()
-        }
-      } catch (error) {
-
-      }
-    }
-    return window.removeEventListener('resize', resizeFoo)
-
-  }, [swiperRef])
 
   return (
     <>
@@ -60,7 +45,11 @@ export default function Product({ product }) {
               </p>
               <h3 className="text product__info-price-prev">{`${previousPrice} руб.`}</h3>
               <h2 className="text product__info-price-current mb-3">{`${currentPrice} руб.`}</h2>
-              <button onClick={() => addProduct(id)} type="button" className="btn btn-outline-primary product__info-submit">Добавить в корзину</button>
+              {category.slug === 'free' ? (
+                <a target={"_blank"} className="btn btn-outline-primary product__info-submit" download={link} href={link}>Скачать курс</a>
+              ) : (
+                <button onClick={() => addProduct(id)} type="button" className="btn btn-outline-primary product__info-submit">Добавить в корзину</button>
+              )}
             </div>
           </form>
         </div>

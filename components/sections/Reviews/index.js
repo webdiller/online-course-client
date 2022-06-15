@@ -4,62 +4,17 @@ import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 import imgPlaceholder from '@/base/placeholder.png'
 
-const reviews = [
-  {
-    id: 0,
-    title: `Comfortable And met all my expectation! ordered a medium and it fit perfectly`,
-    description: `
-    `,
-    authorImg: "/reviews/review-1.jpg",
-    authorName: "Anisa Zahra",
-    authorRole: "Customer"
-  },
-  {
-    id: 1,
-    title: `Comfortable And met all my expectation! ordered a medium and it fit perfectly`,
-    description: `
-    Далеко-далеко за словесными, горами в стране гласных и согласных живут рыбные тексты. Грамматики, сих! Лучше решила жизни своего живет, себя вдали? Своих.
-
-    `,
-    authorImg: "/reviews/review-2.jpg",
-    authorName: "Anisa Zahra",
-    authorRole: "Customer"
-  },
-  {
-    id: 3,
-    title: `Comfortable And met all my expectation! ordered a medium and it fit perfectly`,
-    description: `
-    Далеко-далеко за словесными, горами в стране гласных и согласных живут рыбные тексты. Грамматики, сих! Лучше решила жизни своего живет, себя вдали? Своих.
-
-    `,
-    authorImg: "/reviews/review-1.jpg",
-    authorName: "Anisa Zahra",
-    authorRole: "Customer"
-  },
-  {
-    id: 4,
-    title: `Comfortable And met all my expectation! ordered a medium and it fit perfectly`,
-    description: `
-    Далеко-далеко за словесными, горами в стране гласных и согласных живут рыбные тексты. Грамматики, сих! Лучше решила жизни своего живет, себя вдали? Своих.
-    `,
-    authorImg: "/reviews/review-2.jpg",
-    authorName: "Anisa Zahra",
-    authorRole: "Customer"
-  }
-]
-
-export default function Reviews() {
+export default function Reviews({ products }) {
   return (
     <div className="reviews">
       <div className="reviews__container">
         <div className="reviews__top">
-          <h1 className="reviews__title">Все видеокурсы</h1>
+          <h1 className="reviews__title">Бесплатные видеокурсы</h1>
         </div>
 
         <Swiper
           className="reviews__swiper"
           modules={[Pagination]}
-          loop={true}
           pagination={{
             clickable: true,
             el: '.reviews__pagination'
@@ -80,19 +35,19 @@ export default function Reviews() {
               slidesPerView: 5,
             },
           }}>
-          {reviews.map((slide => {
-            const { id, title, description, authorImg, authorName, authorRole } = slide;
+          {products.map((product => {
+            const { id, mainImg, name } = product;
             return (
               <SwiperSlide
                 key={id}
                 className="reviews__item">
                 <div className="card">
-                  <img style={{ padding: '10px', opacity: .3 }} src={imgPlaceholder.src} alt="products" className="card-img-top" />
+                  <img style={{ padding: '10px' }} src={mainImg ? mainImg : imgPlaceholder.src} alt="products" className="card-img-top" />
                   <div className="card-body">
-                    <p className="card-text">Описание курса</p>
+                    <p className="card-text">{name}</p>
                   </div>
                   <div className="card-body">
-                    <Link href="#"><a className="card-link">Подробнее</a></Link>
+                    <Link href={`/product/${id}`}><a className="card-link">Подробнее</a></Link>
                   </div>
                 </div>
               </SwiperSlide>
