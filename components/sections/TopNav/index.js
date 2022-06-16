@@ -28,7 +28,7 @@ export default function TopNav() {
           <div className="col-12">
             <nav className="navbar navbar-expand-xl navbar-dark">
               <div className="container-fluid px-0">
-                <Link href="/"><a className="navbar-brand">Онлайн курсы</a></Link>
+                <Link href="/"><a className="navbar-brand">Dubrovinne</a></Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                   <span className="navbar-toggler-icon"></span>
                 </button>
@@ -52,7 +52,7 @@ export default function TopNav() {
                       </ul>
                     </li>
                     <li className="nav-item navbar__wallet">
-                      {isAuth && (<Link href="/cabinet/cart"><a className="nav-link" tabIndex="-1" aria-disabled="true">Мои курсы</a></Link>)}
+                      {isAuth && (<Link href="/cabinet/cart"><a className="nav-link" tabIndex="-1" aria-disabled="true">Корзина</a></Link>)}
                     </li>
                     {isAuth && role === 'ADMIN' && (<Link href="/admin/products"><a className="nav-link" tabIndex="-1" aria-disabled="true">Админка</a></Link>)}
                     <li className="nav-item navbar__cabinet-login">

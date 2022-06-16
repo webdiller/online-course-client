@@ -132,7 +132,7 @@ export const routes = {
     },
     {
       route: '/cabinet/cart',
-      pageName: 'Мои курсы'
+      pageName: 'Корзина'
     }
   ],
 }
